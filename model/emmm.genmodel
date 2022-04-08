@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.eclipse.emmm.model/src" modelPluginID="org.eclipse.emmm.model"
+    modelName="Emmm" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="5.0" copyrightFields="false"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>model.ecore</foreignModel>
+  <genPackages prefix="Emmm" disposableProviderFactory="true" ecorePackage="model.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="model.ecore#//DataType">
+      <genEnumLiterals ecoreEnumLiteral="model.ecore#//DataType/String"/>
+      <genEnumLiterals ecoreEnumLiteral="model.ecore#//DataType/Int"/>
+      <genEnumLiterals ecoreEnumLiteral="model.ecore#//DataType/Float"/>
+    </genEnums>
+    <genClasses ecoreClass="model.ecore#//Run">
+      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference model.ecore#//Run/asset"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Run/versionID"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference model.ecore#//Run/metadata"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Run/name"/>
+    </genClasses>
+    <genClasses ecoreClass="model.ecore#//ModelTrain">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference model.ecore#//ModelTrain/trainingset"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference model.ecore#//ModelTrain/inputFeature"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference model.ecore#//ModelTrain/outputModel"/>
+    </genClasses>
+    <genClasses ecoreClass="model.ecore#//Experiment">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference model.ecore#//Experiment/run"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Experiment/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Experiment/description"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference model.ecore#//Experiment/metadata"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="model.ecore#//ExecutionData"/>
+    <genClasses ecoreClass="model.ecore#//Parameter"/>
+    <genClasses ecoreClass="model.ecore#//ModelEval">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference model.ecore#//ModelEval/evalset"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference model.ecore#//ModelEval/inputModel"/>
+    </genClasses>
+    <genClasses ecoreClass="model.ecore#//ModelPerformance"/>
+    <genClasses ecoreClass="model.ecore#//ExperimentStore">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference model.ecore#//ExperimentStore/experiment"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="model.ecore#//Implementation">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Implementation/sourceFile"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference model.ecore#//Implementation/dependency"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference model.ecore#//Implementation/inputs"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference model.ecore#//Implementation/outputs"/>
+    </genClasses>
+    <genClasses ecoreClass="model.ecore#//TrainingSet">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference model.ecore#//TrainingSet/dataset"/>
+    </genClasses>
+    <genClasses ecoreClass="model.ecore#//EvalSet">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference model.ecore#//EvalSet/dataset"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="model.ecore#//GenericFile"/>
+    <genClasses ecoreClass="model.ecore#//ExecutionInfo"/>
+    <genClasses ecoreClass="model.ecore#//DataOriented">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference model.ecore#//DataOriented/inputData"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference model.ecore#//DataOriented/outputData"/>
+    </genClasses>
+    <genClasses ecoreClass="model.ecore#//Dataset">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference model.ecore#//Dataset/datafeature"/>
+    </genClasses>
+    <genClasses ecoreClass="model.ecore#//DataFeature">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//DataFeature/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//DataFeature/dtype"/>
+    </genClasses>
+    <genClasses ecoreClass="model.ecore#//Model">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference model.ecore#//Model/datafeature"/>
+    </genClasses>
+    <genClasses ecoreClass="model.ecore#//Dependency"/>
+    <genClasses image="false" ecoreClass="model.ecore#//Asset">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Asset/versionID"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference model.ecore#//Asset/metadata"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Asset/name"/>
+    </genClasses>
+    <genClasses ecoreClass="model.ecore#//Metadata">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Metadata/key"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Metadata/value"/>
+    </genClasses>
+    <genClasses ecoreClass="model.ecore#//Pipeline">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Pipeline/entryPoint"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference model.ecore#//Pipeline/pipelineStage"/>
+    </genClasses>
+    <genClasses ecoreClass="model.ecore#//ArbitraryFile"/>
+    <genClasses ecoreClass="model.ecore#//GenericImpl"/>
+  </genPackages>
+</genmodel:GenModel>

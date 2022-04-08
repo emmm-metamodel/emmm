@@ -1,0 +1,1287 @@
+<?xml version="1.0" encoding="ASCII"?>
+<model:ExperimentStore xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:model="http://www.example.org/model">
+  <experiment name="Titanic Survival Preiction" description="The following experiment uses the following models with voting classifier: SVC, Random Forest ClassifierLogistic Regression, XGBOOST, MLP Classifier. All models were ensembled using voting classifier with higher weights for the higher acc models.">
+    <run versionID="1" name="@v1">
+      <asset xsi:type="model:Dataset" versionID="1" name="Titanic @v1">
+        <metadata key="URI" value="/kaggle/input/titanic/data.csv"/>
+        <metadata key="Dataset Format" value="CSV"/>
+        <datafeature name="PassengerId" dtype="Int"/>
+        <datafeature name="Survived" dtype="Int"/>
+        <datafeature name="Pclass" dtype="Int"/>
+        <datafeature name="Name"/>
+        <datafeature name="Sex"/>
+        <datafeature name="Age" dtype="Int"/>
+        <datafeature name="SibSp" dtype="Int"/>
+        <datafeature name="Parch" dtype="Int"/>
+        <datafeature name="Ticket"/>
+        <datafeature name="Fare" dtype="Int"/>
+        <datafeature name="Cabin"/>
+        <datafeature name="Embarked"/>
+      </asset>
+      <asset xsi:type="model:TrainingSet" name="TrainingSet @v1">
+        <metadata key="URI" value="/kaggle/input/titanic/train.csv"/>
+        <metadata key="Dataset Format" value="CSV"/>
+      </asset>
+      <asset xsi:type="model:EvalSet" name="Titanic EvaluationSet @v1">
+        <metadata key="URI" value="/kaggle/input/titanic/test.csv"/>
+        <metadata key="Dataset Format" value="CSV"/>
+      </asset>
+      <asset xsi:type="model:Parameter" versionID="1" name="@v1">
+        <metadata key="Data Split random_seed" value="42"/>
+        <metadata key="Cross Validation" value="5"/>
+        <metadata key="rfc_n_estimators" value="300"/>
+        <metadata key="rfc_max_leaf" value="100"/>
+        <metadata key="rfc_random_state" value="0"/>
+        <metadata key="xgb_use_label_encoder" value="False"/>
+        <metadata key="xgb_verbosity" value="0"/>
+        <metadata key="xgb_gamma" value="0.5"/>
+        <metadata key="xgb_reg_lambda" value="10"/>
+      </asset>
+      <asset xsi:type="model:DataOriented" versionID="1" name="EDA &amp; Data preprocessing @v1" sourceFile="/kaggle/data_script.py @v1" inputs="//@experiment.0/@run.0/@asset.3" inputData="//@experiment.0/@run.0/@asset.0" outputData="//@experiment.0/@run.0/@asset.0">
+        <metadata key="Script Type" value="Python"/>
+        <metadata key="Name" value="EDA @v1"/>
+      </asset>
+      <asset xsi:type="model:ModelTrain" versionID="1" name="Model training @v1" sourceFile="/kaggle/train_model_script.py @v1" trainingset="//@experiment.0/@run.0/@asset.1">
+        <metadata key="Script Type" value="Python"/>
+      </asset>
+      <asset xsi:type="model:ModelEval" versionID="1" name="Model testing @v1" sourceFile="/kaggle/eval_model_script.py @v1" evalset="//@experiment.0/@run.0/@asset.2" inputModel="//@experiment.0/@run.0/@asset.8 //@experiment.0/@run.0/@asset.9 //@experiment.0/@run.0/@asset.10 //@experiment.0/@run.0/@asset.11 //@experiment.0/@run.0/@asset.12 //@experiment.0/@run.0/@asset.13">
+        <metadata key="Script Type" value="Python"/>
+      </asset>
+      <asset xsi:type="model:ExecutionInfo" versionID="1" name="@v1">
+        <metadata key="Run duration" value="69s"/>
+        <metadata key="Logs" value="/kaggle/experiment/logs @v1"/>
+      </asset>
+      <asset xsi:type="model:Model" versionID="1" name="Random Forest Model @v1"/>
+      <asset xsi:type="model:Model" versionID="1" name="Logistic Regression Model @v1"/>
+      <asset xsi:type="model:Model" versionID="1" name="XGB Model @v1"/>
+      <asset xsi:type="model:Model" versionID="1" name="SVC Model @v1"/>
+      <asset xsi:type="model:Model" versionID="1" name="MLP Model @v1"/>
+      <asset xsi:type="model:Model" versionID="1" name="Voting Model @v1"/>
+      <asset xsi:type="model:ModelPerformance" versionID="1" name="@v1">
+        <metadata key="Random Forest CV Scores" value="[0.8258427  0.79213483 0.84831461 0.78651685 0.85310734]"/>
+        <metadata key="Random Forest" value="0.8211832666793628"/>
+        <metadata key="Logistic Regression CV Scores" value="[0.78651685 0.79775281 0.78089888 0.78651685 0.81355932]"/>
+        <metadata key="Logistic Regression" value="0.7930489430584651"/>
+        <metadata key="XGB Classifier CV Scores" value="[0.80898876 0.83146067 0.89325843 0.84269663 0.84745763]"/>
+        <metadata key="XGB Classifier" value="0.8447724243001332"/>
+        <metadata key="SVC CV Scores" value="[0.8258427  0.82022472 0.80337079 0.80898876 0.85310734]"/>
+        <metadata key="SVC" value="0.8223068621849807"/>
+        <metadata key="MLP CV Scores" value="[0.76404494 0.80337079 0.83146067 0.80337079 0.85310734]"/>
+        <metadata key="MLP" value="0.8110709071288008"/>
+        <metadata key="Voting Classifier CV Scores" value="[0.8258427  0.83146067 0.85393258 0.80898876 0.85310734]"/>
+        <metadata key="Voting Classifier" value="0.8346664127467782"/>
+        <metadata key="Voting Classifier Accuracy Score" value="82.58%"/>
+        <metadata key="ConfusionMatrix" value="/kaggle/voting_classifier_confusion_matrix.csv"/>
+      </asset>
+    </run>
+    <run versionID="2" name="@v2">
+      <asset xsi:type="model:Dataset" versionID="1" name="Titanic @v1">
+        <metadata key="URI" value="/kaggle/input/titanic/data.csv"/>
+        <metadata key="Dataset Format" value="CSV"/>
+        <datafeature name="PassengerId" dtype="Int"/>
+        <datafeature name="Survived" dtype="Int"/>
+        <datafeature name="Pclass" dtype="Int"/>
+        <datafeature name="Name"/>
+        <datafeature name="Sex"/>
+        <datafeature name="Age" dtype="Int"/>
+        <datafeature name="SibSp" dtype="Int"/>
+        <datafeature name="Parch" dtype="Int"/>
+        <datafeature name="Ticket"/>
+        <datafeature name="Fare" dtype="Int"/>
+        <datafeature name="Cabin"/>
+        <datafeature name="Embarked"/>
+      </asset>
+      <asset xsi:type="model:TrainingSet" name="TrainingSet @v1">
+        <metadata key="URI" value="/kaggle/input/titanic/train.csv"/>
+        <metadata key="Dataset Format" value="CSV"/>
+      </asset>
+      <asset xsi:type="model:EvalSet" name="Titanic EvaluationSet @v1">
+        <metadata key="URI" value="/kaggle/input/titanic/test.csv"/>
+        <metadata key="Dataset Format" value="CSV"/>
+      </asset>
+      <asset xsi:type="model:Parameter" versionID="1" name="@v1">
+        <metadata key="Data Split random_seed" value="42"/>
+        <metadata key="Cross Validation" value="5"/>
+        <metadata key="rfc_n_estimators" value="300"/>
+        <metadata key="rfc_max_leaf" value="100"/>
+        <metadata key="rfc_random_state" value="0"/>
+        <metadata key="xgb_use_label_encoder" value="False"/>
+        <metadata key="xgb_verbosity" value="0"/>
+        <metadata key="xgb_gamma" value="0.5"/>
+        <metadata key="xgb_reg_lambda" value="10"/>
+      </asset>
+      <asset xsi:type="model:DataOriented" versionID="1" name="EDA &amp; Data preprocessing @v1" sourceFile="/kaggle/data_script.py @v1" inputs="//@experiment.0/@run.0/@asset.3" inputData="//@experiment.0/@run.0/@asset.0" outputData="//@experiment.0/@run.0/@asset.0">
+        <metadata key="Script Type" value="Python"/>
+        <metadata key="Name" value="EDA @v1"/>
+      </asset>
+      <asset xsi:type="model:ModelTrain" versionID="1" name="Model training @v1" sourceFile="/kaggle/train_model_script.py @v1" trainingset="//@experiment.0/@run.0/@asset.1">
+        <metadata key="Script Type" value="Python"/>
+      </asset>
+      <asset xsi:type="model:ModelEval" versionID="1" name="Model testing @v1" sourceFile="/kaggle/eval_model_script.py @v1" evalset="//@experiment.0/@run.0/@asset.2" inputModel="//@experiment.0/@run.0/@asset.8 //@experiment.0/@run.0/@asset.9 //@experiment.0/@run.0/@asset.10 //@experiment.0/@run.0/@asset.11 //@experiment.0/@run.0/@asset.12 //@experiment.0/@run.0/@asset.13">
+        <metadata key="Script Type" value="Python"/>
+      </asset>
+      <asset xsi:type="model:ExecutionInfo" versionID="2" name="@v2">
+        <metadata key="Run duration" value="80s"/>
+        <metadata key="Logs" value="/kaggle/experiment/logs @v2"/>
+      </asset>
+      <asset xsi:type="model:Model" versionID="2" name="Random Forest Model @v2"/>
+      <asset xsi:type="model:Model" versionID="2" name="Logistic Regression Model @v2"/>
+      <asset xsi:type="model:Model" versionID="2" name="XGB Model @v2"/>
+      <asset xsi:type="model:Model" versionID="2" name="SVC Model @v2"/>
+      <asset xsi:type="model:Model" versionID="2" name="MLP Model @v2"/>
+      <asset xsi:type="model:Model" versionID="2" name="Voting Model @v2"/>
+      <asset xsi:type="model:ModelPerformance" versionID="2" name="@v2">
+        <metadata key="Random Forest CV Scores" value="[0.8258427  0.79213483 0.84831461 0.78651685 0.85310734]"/>
+        <metadata key="Random Forest" value="0.8211832666793628"/>
+        <metadata key="Logistic Regression CV Scores" value="[0.78651685 0.79775281 0.78089888 0.78651685 0.81355932]"/>
+        <metadata key="Logistic Regression" value="0.7930489430584651"/>
+        <metadata key="XGB Classifier CV Scores" value="[0.80898876 0.83146067 0.89325843 0.84269663 0.84745763]"/>
+        <metadata key="XGB Classifier" value="0.8447724243001332"/>
+        <metadata key="SVC CV Scores" value="[0.8258427  0.82022472 0.80337079 0.80898876 0.85310734]"/>
+        <metadata key="SVC" value="0.8223068621849807"/>
+        <metadata key="MLP CV Scores" value="[0.76404494 0.80337079 0.83146067 0.80337079 0.85310734]"/>
+        <metadata key="MLP" value="0.8110709071288008"/>
+        <metadata key="Voting Classifier CV Scores" value="[0.8258427  0.83146067 0.85393258 0.80898876 0.85310734]"/>
+        <metadata key="Voting Classifier" value="0.8346664127467782"/>
+      </asset>
+    </run>
+    <run versionID="3" name="@v3">
+      <asset xsi:type="model:Dataset" versionID="1" name="Titanic @v1">
+        <metadata key="URI" value="/kaggle/input/titanic/data.csv"/>
+        <metadata key="Dataset Format" value="CSV"/>
+        <datafeature name="PassengerId" dtype="Int"/>
+        <datafeature name="Survived" dtype="Int"/>
+        <datafeature name="Pclass" dtype="Int"/>
+        <datafeature name="Name"/>
+        <datafeature name="Sex"/>
+        <datafeature name="Age" dtype="Int"/>
+        <datafeature name="SibSp" dtype="Int"/>
+        <datafeature name="Parch" dtype="Int"/>
+        <datafeature name="Ticket"/>
+        <datafeature name="Fare" dtype="Int"/>
+        <datafeature name="Cabin"/>
+        <datafeature name="Embarked"/>
+      </asset>
+      <asset xsi:type="model:TrainingSet" name="TrainingSet @v1">
+        <metadata key="URI" value="/kaggle/input/titanic/train.csv"/>
+        <metadata key="Dataset Format" value="CSV"/>
+      </asset>
+      <asset xsi:type="model:EvalSet" name="Titanic EvaluationSet @v1">
+        <metadata key="URI" value="/kaggle/input/titanic/test.csv"/>
+        <metadata key="Dataset Format" value="CSV"/>
+      </asset>
+      <asset xsi:type="model:Parameter" versionID="1" name="@v1">
+        <metadata key="Data Split random_seed" value="42"/>
+        <metadata key="Cross Validation" value="5"/>
+        <metadata key="rfc_n_estimators" value="300"/>
+        <metadata key="rfc_max_leaf" value="100"/>
+        <metadata key="rfc_random_state" value="0"/>
+        <metadata key="xgb_use_label_encoder" value="False"/>
+        <metadata key="xgb_verbosity" value="0"/>
+        <metadata key="xgb_gamma" value="0.5"/>
+        <metadata key="xgb_reg_lambda" value="10"/>
+      </asset>
+      <asset xsi:type="model:DataOriented" versionID="1" name="EDA &amp; Data preprocessing @v1" sourceFile="/kaggle/data_script.py @v1" inputs="//@experiment.0/@run.0/@asset.3" inputData="//@experiment.0/@run.0/@asset.0" outputData="//@experiment.0/@run.0/@asset.0">
+        <metadata key="Script Type" value="Python"/>
+        <metadata key="Name" value="EDA @v1"/>
+      </asset>
+      <asset xsi:type="model:ModelTrain" versionID="1" name="Model training @v1" sourceFile="/kaggle/train_model_script.py @v1" trainingset="//@experiment.0/@run.0/@asset.1">
+        <metadata key="Script Type" value="Python"/>
+      </asset>
+      <asset xsi:type="model:ModelEval" versionID="2" name="Model testing @v2" sourceFile="/kaggle/eval_model_script.py @v2" evalset="//@experiment.0/@run.0/@asset.2" inputModel="//@experiment.0/@run.2/@asset.8 //@experiment.0/@run.2/@asset.9 //@experiment.0/@run.2/@asset.10 //@experiment.0/@run.2/@asset.11 //@experiment.0/@run.2/@asset.12 //@experiment.0/@run.2/@asset.13">
+        <metadata key="Script Type" value="Python"/>
+      </asset>
+      <asset xsi:type="model:ExecutionInfo" versionID="3" name="@v3">
+        <metadata key="Run duration" value="67s"/>
+        <metadata key="Logs" value="/kaggle/experiment/logs @v3"/>
+      </asset>
+      <asset xsi:type="model:Model" versionID="3" name="Random Forest Model @v3"/>
+      <asset xsi:type="model:Model" versionID="3" name="Logistic Regression Model @v3"/>
+      <asset xsi:type="model:Model" versionID="3" name="XGB Model @v3"/>
+      <asset xsi:type="model:Model" versionID="3" name="SVC Model @v3"/>
+      <asset xsi:type="model:Model" versionID="3" name="MLP Model @v3"/>
+      <asset xsi:type="model:Model" versionID="3" name="Voting Model @v3"/>
+      <asset xsi:type="model:ModelPerformance" versionID="3" name="@v3">
+        <metadata key="Random Forest CV Scores" value="[0.8258427  0.79213483 0.84831461 0.78651685 0.85310734]"/>
+        <metadata key="Random Forest" value="0.8211832666793628"/>
+        <metadata key="Logistic Regression CV Scores" value="[0.78651685 0.79775281 0.78089888 0.78651685 0.81355932]"/>
+        <metadata key="Logistic Regression" value="0.7930489430584651"/>
+        <metadata key="XGB Classifier CV Scores" value="[0.80898876 0.83146067 0.89325843 0.84269663 0.84745763]"/>
+        <metadata key="XGB Classifier" value="0.8447724243001332"/>
+        <metadata key="SVC CV Scores" value="[0.8258427  0.82022472 0.80337079 0.80898876 0.85310734]"/>
+        <metadata key="SVC" value="0.8223068621849807"/>
+        <metadata key="MLP CV Scores" value="[0.76404494 0.80337079 0.83146067 0.80337079 0.85310734]"/>
+        <metadata key="MLP" value="0.8110709071288008"/>
+        <metadata key="Voting Classifier CV Scores" value="[0.8258427  0.83146067 0.85393258 0.80898876 0.85310734]"/>
+        <metadata key="Voting Classifier" value="0.8346664127467782"/>
+      </asset>
+    </run>
+    <run versionID="4" name="@v4">
+      <asset xsi:type="model:Dataset" versionID="1" name="Titanic @v1">
+        <metadata key="URI" value="/kaggle/input/titanic/data.csv"/>
+        <metadata key="Dataset Format" value="CSV"/>
+        <datafeature name="PassengerId" dtype="Int"/>
+        <datafeature name="Survived" dtype="Int"/>
+        <datafeature name="Pclass" dtype="Int"/>
+        <datafeature name="Name"/>
+        <datafeature name="Sex"/>
+        <datafeature name="Age" dtype="Int"/>
+        <datafeature name="SibSp" dtype="Int"/>
+        <datafeature name="Parch" dtype="Int"/>
+        <datafeature name="Ticket"/>
+        <datafeature name="Fare" dtype="Int"/>
+        <datafeature name="Cabin"/>
+        <datafeature name="Embarked"/>
+      </asset>
+      <asset xsi:type="model:TrainingSet" name="TrainingSet @v1">
+        <metadata key="URI" value="/kaggle/input/titanic/train.csv"/>
+        <metadata key="Dataset Format" value="CSV"/>
+      </asset>
+      <asset xsi:type="model:EvalSet" name="Titanic EvaluationSet @v1">
+        <metadata key="URI" value="/kaggle/input/titanic/test.csv"/>
+        <metadata key="Dataset Format" value="CSV"/>
+      </asset>
+      <asset xsi:type="model:Parameter" versionID="1" name="@v1">
+        <metadata key="Data Split random_seed" value="42"/>
+        <metadata key="Cross Validation" value="5"/>
+        <metadata key="rfc_n_estimators" value="300"/>
+        <metadata key="rfc_max_leaf" value="100"/>
+        <metadata key="rfc_random_state" value="0"/>
+        <metadata key="xgb_use_label_encoder" value="False"/>
+        <metadata key="xgb_verbosity" value="0"/>
+        <metadata key="xgb_gamma" value="0.5"/>
+        <metadata key="xgb_reg_lambda" value="10"/>
+      </asset>
+      <asset xsi:type="model:DataOriented" versionID="1" name="EDA &amp; Data preprocessing @v1" sourceFile="/kaggle/data_script.py @v1" inputs="//@experiment.0/@run.0/@asset.3" inputData="//@experiment.0/@run.0/@asset.0" outputData="//@experiment.0/@run.0/@asset.0">
+        <metadata key="Script Type" value="Python"/>
+        <metadata key="Name" value="EDA @v1"/>
+      </asset>
+      <asset xsi:type="model:ModelTrain" versionID="1" name="Model training @v1" sourceFile="/kaggle/train_model_script.py @v1" trainingset="//@experiment.0/@run.0/@asset.1">
+        <metadata key="Script Type" value="Python"/>
+      </asset>
+      <asset xsi:type="model:ModelEval" versionID="2" name="Model testing @v2" sourceFile="/kaggle/eval_model_script.py @v2" evalset="//@experiment.0/@run.0/@asset.2" inputModel="//@experiment.0/@run.2/@asset.8 //@experiment.0/@run.2/@asset.9 //@experiment.0/@run.2/@asset.10 //@experiment.0/@run.2/@asset.11 //@experiment.0/@run.2/@asset.12 //@experiment.0/@run.2/@asset.13">
+        <metadata key="Script Type" value="Python"/>
+      </asset>
+      <asset xsi:type="model:ExecutionInfo" versionID="4" name="@v4">
+        <metadata key="Run duration" value="36s"/>
+        <metadata key="Logs" value="/kaggle/experiment/logs @v4"/>
+      </asset>
+      <asset xsi:type="model:Model" versionID="4" name="Random Forest Model @v4"/>
+      <asset xsi:type="model:Model" versionID="4" name="Logistic Regression Model @v4"/>
+      <asset xsi:type="model:Model" versionID="4" name="XGB Model @v4"/>
+      <asset xsi:type="model:Model" versionID="4" name="SVC Model @v4"/>
+      <asset xsi:type="model:Model" versionID="4" name="MLP Model @v4"/>
+      <asset xsi:type="model:Model" versionID="4" name="Voting Model @v4"/>
+      <asset xsi:type="model:ModelPerformance" versionID="4" name="@v4">
+        <metadata key="Random Forest CV Scores" value="[0.8258427  0.79213483 0.84831461 0.78651685 0.85310734]"/>
+        <metadata key="Random Forest" value="0.8211832666793628"/>
+        <metadata key="Logistic Regression CV Scores" value="[0.78651685 0.79775281 0.78089888 0.78651685 0.81355932]"/>
+        <metadata key="Logistic Regression" value="0.7930489430584651"/>
+        <metadata key="XGB Classifier CV Scores" value="[0.80898876 0.83146067 0.89325843 0.84269663 0.84745763]"/>
+        <metadata key="XGB Classifier" value="0.8447724243001332"/>
+        <metadata key="SVC CV Scores" value="[0.8258427  0.82022472 0.80337079 0.80898876 0.85310734]"/>
+        <metadata key="SVC" value="0.8223068621849807"/>
+        <metadata key="MLP CV Scores" value="[0.76404494 0.80337079 0.83146067 0.80337079 0.85310734]"/>
+        <metadata key="MLP" value="0.8110709071288008"/>
+        <metadata key="Voting Classifier CV Scores" value="[0.8258427  0.83146067 0.85393258 0.80898876 0.85310734]"/>
+        <metadata key="Voting Classifier" value="0.8346664127467782"/>
+      </asset>
+    </run>
+    <run versionID="5" name="@v5">
+      <asset xsi:type="model:Dataset" versionID="1" name="Titanic @v1">
+        <metadata key="URI" value="/kaggle/input/titanic/data.csv"/>
+        <metadata key="Dataset Format" value="CSV"/>
+        <datafeature name="PassengerId" dtype="Int"/>
+        <datafeature name="Survived" dtype="Int"/>
+        <datafeature name="Pclass" dtype="Int"/>
+        <datafeature name="Name"/>
+        <datafeature name="Sex"/>
+        <datafeature name="Age" dtype="Int"/>
+        <datafeature name="SibSp" dtype="Int"/>
+        <datafeature name="Parch" dtype="Int"/>
+        <datafeature name="Ticket"/>
+        <datafeature name="Fare" dtype="Int"/>
+        <datafeature name="Cabin"/>
+        <datafeature name="Embarked"/>
+      </asset>
+      <asset xsi:type="model:TrainingSet" name="TrainingSet @v1">
+        <metadata key="URI" value="/kaggle/input/titanic/train.csv"/>
+        <metadata key="Dataset Format" value="CSV"/>
+      </asset>
+      <asset xsi:type="model:EvalSet" name="Titanic EvaluationSet @v1">
+        <metadata key="URI" value="/kaggle/input/titanic/test.csv"/>
+        <metadata key="Dataset Format" value="CSV"/>
+      </asset>
+      <asset xsi:type="model:Parameter" versionID="2" name="@v2">
+        <metadata key="Data Split random_seed" value="42"/>
+        <metadata key="Cross Validation" value="5"/>
+        <metadata key="rfc_n_estimators" value="300"/>
+        <metadata key="rfc_max_leaf" value="100"/>
+        <metadata key="rfc_random_state" value="0"/>
+        <metadata key="xgb_use_label_encoder" value="False"/>
+        <metadata key="xgb_verbosity" value="0"/>
+        <metadata key="xgb_gamma" value="0.5"/>
+        <metadata key="xgb_reg_lambda" value="10"/>
+      </asset>
+      <asset xsi:type="model:DataOriented" versionID="1" name="EDA &amp; Data preprocessing @v1" sourceFile="/kaggle/data_script.py @v1" inputs="//@experiment.0/@run.0/@asset.3" inputData="//@experiment.0/@run.0/@asset.0" outputData="//@experiment.0/@run.0/@asset.0">
+        <metadata key="Script Type" value="Python"/>
+        <metadata key="Name" value="EDA @v1"/>
+      </asset>
+      <asset xsi:type="model:ModelTrain" versionID="1" name="Model training @v1" sourceFile="/kaggle/train_model_script.py @v1" trainingset="//@experiment.0/@run.0/@asset.1">
+        <metadata key="Script Type" value="Python"/>
+      </asset>
+      <asset xsi:type="model:ModelEval" versionID="2" name="Model testing @v2" sourceFile="/kaggle/eval_model_script.py @v2" evalset="//@experiment.0/@run.0/@asset.2" inputModel="//@experiment.0/@run.2/@asset.8 //@experiment.0/@run.2/@asset.9 //@experiment.0/@run.2/@asset.10 //@experiment.0/@run.2/@asset.11 //@experiment.0/@run.2/@asset.12 //@experiment.0/@run.2/@asset.13">
+        <metadata key="Script Type" value="Python"/>
+      </asset>
+      <asset xsi:type="model:ExecutionInfo" versionID="5" name="@v5">
+        <metadata key="Run duration" value="76.6s"/>
+        <metadata key="Logs" value="/kaggle/experiment/logs @v5"/>
+      </asset>
+      <asset xsi:type="model:Model" versionID="5" name="Random Forest Model @v5"/>
+      <asset xsi:type="model:Model" versionID="5" name="Logistic Regression Model @v5"/>
+      <asset xsi:type="model:Model" versionID="5" name="XGB Model @v5"/>
+      <asset xsi:type="model:Model" versionID="5" name="SVC Model @v5"/>
+      <asset xsi:type="model:Model" versionID="5" name="MLP Model @v5"/>
+      <asset xsi:type="model:Model" versionID="5" name="Voting Model @v5"/>
+      <asset xsi:type="model:ModelPerformance" versionID="5" name="@v5">
+        <metadata key="Random Forest CV Scores" value="[0.8258427  0.79213483 0.84831461 0.78651685 0.85310734]"/>
+        <metadata key="Random Forest" value="0.8211832666793628"/>
+        <metadata key="Logistic Regression CV Scores" value="[0.78651685 0.79775281 0.78089888 0.78651685 0.81355932]"/>
+        <metadata key="Logistic Regression" value="0.7930489430584651"/>
+        <metadata key="XGB Classifier CV Scores" value="[0.80898876 0.83146067 0.89325843 0.84269663 0.84745763]"/>
+        <metadata key="XGB Classifier" value="0.8447724243001332"/>
+        <metadata key="SVC CV Scores" value="[0.8258427  0.82022472 0.80337079 0.80898876 0.85310734]"/>
+        <metadata key="SVC" value="0.8223068621849807"/>
+        <metadata key="MLP CV Scores" value="[0.76404494 0.80337079 0.83146067 0.80337079 0.85310734]"/>
+        <metadata key="MLP" value="0.8110709071288008"/>
+        <metadata key="Voting Classifier CV Scores" value="[0.8258427  0.83146067 0.85393258 0.80898876 0.85310734]"/>
+        <metadata key="Voting Classifier" value="0.8346664127467782"/>
+      </asset>
+    </run>
+    <run versionID="6" name="@v6">
+      <asset xsi:type="model:Dataset" versionID="1" name="Titanic @v1">
+        <metadata key="URI" value="/kaggle/input/titanic/data.csv"/>
+        <metadata key="Dataset Format" value="CSV"/>
+        <datafeature name="PassengerId" dtype="Int"/>
+        <datafeature name="Survived" dtype="Int"/>
+        <datafeature name="Pclass" dtype="Int"/>
+        <datafeature name="Name"/>
+        <datafeature name="Sex"/>
+        <datafeature name="Age" dtype="Int"/>
+        <datafeature name="SibSp" dtype="Int"/>
+        <datafeature name="Parch" dtype="Int"/>
+        <datafeature name="Ticket"/>
+        <datafeature name="Fare" dtype="Int"/>
+        <datafeature name="Cabin"/>
+        <datafeature name="Embarked"/>
+      </asset>
+      <asset xsi:type="model:TrainingSet" name="TrainingSet @v1">
+        <metadata key="URI" value="/kaggle/input/titanic/train.csv"/>
+        <metadata key="Dataset Format" value="CSV"/>
+      </asset>
+      <asset xsi:type="model:EvalSet" name="Titanic EvaluationSet @v1">
+        <metadata key="URI" value="/kaggle/input/titanic/test.csv"/>
+        <metadata key="Dataset Format" value="CSV"/>
+      </asset>
+      <asset xsi:type="model:Parameter" versionID="2" name="@v2">
+        <metadata key="Data Split random_seed" value="42"/>
+        <metadata key="Cross Validation" value="5"/>
+        <metadata key="rfc_n_estimators" value="300"/>
+        <metadata key="rfc_max_leaf" value="100"/>
+        <metadata key="rfc_random_state" value="0"/>
+        <metadata key="xgb_use_label_encoder" value="False"/>
+        <metadata key="xgb_verbosity" value="0"/>
+        <metadata key="xgb_gamma" value="0.5"/>
+        <metadata key="xgb_reg_lambda" value="10"/>
+      </asset>
+      <asset xsi:type="model:DataOriented" versionID="1" name="EDA &amp; Data preprocessing @v1" sourceFile="/kaggle/data_script.py @v1" inputs="//@experiment.0/@run.0/@asset.3" inputData="//@experiment.0/@run.0/@asset.0" outputData="//@experiment.0/@run.0/@asset.0">
+        <metadata key="Script Type" value="Python"/>
+        <metadata key="Name" value="EDA @v1"/>
+      </asset>
+      <asset xsi:type="model:ModelTrain" versionID="1" name="Model training @v1" sourceFile="/kaggle/train_model_script.py @v1" trainingset="//@experiment.0/@run.0/@asset.1">
+        <metadata key="Script Type" value="Python"/>
+      </asset>
+      <asset xsi:type="model:ModelEval" versionID="2" name="Model testing @v2" sourceFile="/kaggle/eval_model_script.py @v2" evalset="//@experiment.0/@run.0/@asset.2" inputModel="//@experiment.0/@run.2/@asset.8 //@experiment.0/@run.2/@asset.9 //@experiment.0/@run.2/@asset.10 //@experiment.0/@run.2/@asset.11 //@experiment.0/@run.2/@asset.12 //@experiment.0/@run.2/@asset.13">
+        <metadata key="Script Type" value="Python"/>
+      </asset>
+      <asset xsi:type="model:ExecutionInfo" versionID="6" name="@v6">
+        <metadata key="Run duration" value="69s"/>
+        <metadata key="Logs" value="/kaggle/experiment/logs @v6"/>
+      </asset>
+      <asset xsi:type="model:Model" versionID="6" name="Random Forest Model @v6"/>
+      <asset xsi:type="model:Model" versionID="6" name="Logistic Regression Model @v6"/>
+      <asset xsi:type="model:Model" versionID="6" name="XGB Model @v6"/>
+      <asset xsi:type="model:Model" versionID="6" name="SVC Model @v6"/>
+      <asset xsi:type="model:Model" versionID="6" name="MLP Model @v6"/>
+      <asset xsi:type="model:Model" versionID="6" name="Voting Model @v6"/>
+      <asset xsi:type="model:ModelPerformance" versionID="6" name="@v6">
+        <metadata key="Random Forest CV Scores" value="[0.8258427  0.79213483 0.84831461 0.78651685 0.85310734]"/>
+        <metadata key="Random Forest" value="0.8211832666793628"/>
+        <metadata key="Logistic Regression CV Scores" value="[0.78651685 0.79775281 0.78089888 0.78651685 0.81355932]"/>
+        <metadata key="Logistic Regression" value="0.7930489430584651"/>
+        <metadata key="XGB Classifier CV Scores" value="[0.80898876 0.83146067 0.89325843 0.84269663 0.84745763]"/>
+        <metadata key="XGB Classifier" value="0.8447724243001332"/>
+        <metadata key="SVC CV Scores" value="[0.8258427  0.82022472 0.80337079 0.80898876 0.85310734]"/>
+        <metadata key="SVC" value="0.8223068621849807"/>
+        <metadata key="MLP CV Scores" value="[0.76404494 0.80337079 0.83146067 0.80337079 0.85310734]"/>
+        <metadata key="MLP" value="0.8110709071288008"/>
+        <metadata key="Voting Classifier CV Scores" value="[0.8258427  0.83146067 0.85393258 0.80898876 0.85310734]"/>
+        <metadata key="Voting Classifier" value="0.8346664127467782"/>
+      </asset>
+    </run>
+    <run versionID="7" name="@v7">
+      <asset xsi:type="model:Dataset" versionID="1" name="Titanic @v1">
+        <metadata key="URI" value="/kaggle/input/titanic/data.csv"/>
+        <metadata key="Dataset Format" value="CSV"/>
+        <datafeature name="PassengerId" dtype="Int"/>
+        <datafeature name="Survived" dtype="Int"/>
+        <datafeature name="Pclass" dtype="Int"/>
+        <datafeature name="Name"/>
+        <datafeature name="Sex"/>
+        <datafeature name="Age" dtype="Int"/>
+        <datafeature name="SibSp" dtype="Int"/>
+        <datafeature name="Parch" dtype="Int"/>
+        <datafeature name="Ticket"/>
+        <datafeature name="Fare" dtype="Int"/>
+        <datafeature name="Cabin"/>
+        <datafeature name="Embarked"/>
+      </asset>
+      <asset xsi:type="model:TrainingSet" name="TrainingSet @v1">
+        <metadata key="URI" value="/kaggle/input/titanic/train.csv"/>
+        <metadata key="Dataset Format" value="CSV"/>
+      </asset>
+      <asset xsi:type="model:EvalSet" name="Titanic EvaluationSet @v1">
+        <metadata key="URI" value="/kaggle/input/titanic/test.csv"/>
+        <metadata key="Dataset Format" value="CSV"/>
+      </asset>
+      <asset xsi:type="model:Parameter" versionID="2" name="@v2">
+        <metadata key="Data Split random_seed" value="42"/>
+        <metadata key="Cross Validation" value="5"/>
+        <metadata key="rfc_n_estimators" value="300"/>
+        <metadata key="rfc_max_leaf" value="100"/>
+        <metadata key="rfc_random_state" value="0"/>
+        <metadata key="xgb_use_label_encoder" value="False"/>
+        <metadata key="xgb_verbosity" value="0"/>
+        <metadata key="xgb_gamma" value="0.5"/>
+        <metadata key="xgb_reg_lambda" value="10"/>
+      </asset>
+      <asset xsi:type="model:DataOriented" versionID="1" name="EDA &amp; Data preprocessing @v1" sourceFile="/kaggle/data_script.py @v1" inputs="//@experiment.0/@run.0/@asset.3" inputData="//@experiment.0/@run.0/@asset.0" outputData="//@experiment.0/@run.0/@asset.0">
+        <metadata key="Script Type" value="Python"/>
+        <metadata key="Name" value="EDA @v1"/>
+      </asset>
+      <asset xsi:type="model:ModelTrain" versionID="1" name="Model training @v1" sourceFile="/kaggle/train_model_script.py @v1" trainingset="//@experiment.0/@run.0/@asset.1">
+        <metadata key="Script Type" value="Python"/>
+      </asset>
+      <asset xsi:type="model:ModelEval" versionID="2" name="Model testing @v2" sourceFile="/kaggle/eval_model_script.py @v2" evalset="//@experiment.0/@run.0/@asset.2" inputModel="//@experiment.0/@run.2/@asset.8 //@experiment.0/@run.2/@asset.9 //@experiment.0/@run.2/@asset.10 //@experiment.0/@run.2/@asset.11 //@experiment.0/@run.2/@asset.12 //@experiment.0/@run.2/@asset.13">
+        <metadata key="Script Type" value="Python"/>
+      </asset>
+      <asset xsi:type="model:ExecutionInfo" versionID="7" name="@v7">
+        <metadata key="Run duration" value="80s"/>
+        <metadata key="Logs" value="/kaggle/experiment/logs @v7"/>
+      </asset>
+      <asset xsi:type="model:Model" versionID="7" name="Random Forest Model @v7"/>
+      <asset xsi:type="model:Model" versionID="7" name="Logistic Regression Model @v7"/>
+      <asset xsi:type="model:Model" versionID="7" name="XGB Model @v7"/>
+      <asset xsi:type="model:Model" versionID="7" name="SVC Model @v7"/>
+      <asset xsi:type="model:Model" versionID="7" name="MLP Model @v7"/>
+      <asset xsi:type="model:Model" versionID="7" name="Voting Model @v7"/>
+      <asset xsi:type="model:ModelPerformance" versionID="7" name="@v7">
+        <metadata key="Random Forest CV Scores" value="[0.8258427  0.79213483 0.84831461 0.78651685 0.85310734]"/>
+        <metadata key="Random Forest" value="0.8211832666793628"/>
+        <metadata key="Logistic Regression CV Scores" value="[0.78651685 0.79775281 0.78089888 0.78651685 0.81355932]"/>
+        <metadata key="Logistic Regression" value="0.7930489430584651"/>
+        <metadata key="XGB Classifier CV Scores" value="[0.80898876 0.83146067 0.89325843 0.84269663 0.84745763]"/>
+        <metadata key="XGB Classifier" value="0.8447724243001332"/>
+        <metadata key="SVC CV Scores" value="[0.8258427  0.82022472 0.80337079 0.80898876 0.85310734]"/>
+        <metadata key="SVC" value="0.8223068621849807"/>
+        <metadata key="MLP CV Scores" value="[0.76404494 0.80337079 0.83146067 0.80337079 0.85310734]"/>
+        <metadata key="MLP" value="0.8110709071288008"/>
+        <metadata key="Voting Classifier CV Scores" value="[0.8258427  0.83146067 0.85393258 0.80898876 0.85310734]"/>
+        <metadata key="Voting Classifier" value="0.8346664127467782"/>
+      </asset>
+    </run>
+    <run versionID="8" name="@v8">
+      <asset xsi:type="model:Dataset" versionID="1" name="Titanic @v1">
+        <metadata key="URI" value="/kaggle/input/titanic/data.csv"/>
+        <metadata key="Dataset Format" value="CSV"/>
+        <datafeature name="PassengerId" dtype="Int"/>
+        <datafeature name="Survived" dtype="Int"/>
+        <datafeature name="Pclass" dtype="Int"/>
+        <datafeature name="Name"/>
+        <datafeature name="Sex"/>
+        <datafeature name="Age" dtype="Int"/>
+        <datafeature name="SibSp" dtype="Int"/>
+        <datafeature name="Parch" dtype="Int"/>
+        <datafeature name="Ticket"/>
+        <datafeature name="Fare" dtype="Int"/>
+        <datafeature name="Cabin"/>
+        <datafeature name="Embarked"/>
+      </asset>
+      <asset xsi:type="model:TrainingSet" name="TrainingSet @v1">
+        <metadata key="URI" value="/kaggle/input/titanic/train.csv"/>
+        <metadata key="Dataset Format" value="CSV"/>
+      </asset>
+      <asset xsi:type="model:EvalSet" name="Titanic EvaluationSet @v1">
+        <metadata key="URI" value="/kaggle/input/titanic/test.csv"/>
+        <metadata key="Dataset Format" value="CSV"/>
+      </asset>
+      <asset xsi:type="model:Parameter" versionID="2" name="@v2">
+        <metadata key="Data Split random_seed" value="42"/>
+        <metadata key="Cross Validation" value="5"/>
+        <metadata key="rfc_n_estimators" value="300"/>
+        <metadata key="rfc_max_leaf" value="100"/>
+        <metadata key="rfc_random_state" value="0"/>
+        <metadata key="xgb_use_label_encoder" value="False"/>
+        <metadata key="xgb_verbosity" value="0"/>
+        <metadata key="xgb_gamma" value="0.5"/>
+        <metadata key="xgb_reg_lambda" value="10"/>
+      </asset>
+      <asset xsi:type="model:DataOriented" versionID="1" name="EDA &amp; Data preprocessing @v1" sourceFile="/kaggle/data_script.py @v1" inputs="//@experiment.0/@run.0/@asset.3" inputData="//@experiment.0/@run.0/@asset.0" outputData="//@experiment.0/@run.0/@asset.0">
+        <metadata key="Script Type" value="Python"/>
+        <metadata key="Name" value="EDA @v1"/>
+      </asset>
+      <asset xsi:type="model:ModelTrain" versionID="1" name="Model training @v1" sourceFile="/kaggle/train_model_script.py @v1" trainingset="//@experiment.0/@run.0/@asset.1">
+        <metadata key="Script Type" value="Python"/>
+      </asset>
+      <asset xsi:type="model:ModelEval" versionID="2" name="Model testing @v2" sourceFile="/kaggle/eval_model_script.py @v2" evalset="//@experiment.0/@run.0/@asset.2" inputModel="//@experiment.0/@run.2/@asset.8 //@experiment.0/@run.2/@asset.9 //@experiment.0/@run.2/@asset.10 //@experiment.0/@run.2/@asset.11 //@experiment.0/@run.2/@asset.12 //@experiment.0/@run.2/@asset.13">
+        <metadata key="Script Type" value="Python"/>
+      </asset>
+      <asset xsi:type="model:ExecutionInfo" versionID="8" name="@v8">
+        <metadata key="Run duration" value="67s"/>
+        <metadata key="Logs" value="/kaggle/experiment/logs @v8"/>
+      </asset>
+      <asset xsi:type="model:Model" versionID="8" name="Random Forest Model @v8"/>
+      <asset xsi:type="model:Model" versionID="8" name="Logistic Regression Model @v8"/>
+      <asset xsi:type="model:Model" versionID="8" name="XGB Model @v8"/>
+      <asset xsi:type="model:Model" versionID="8" name="SVC Model @v8"/>
+      <asset xsi:type="model:Model" versionID="8" name="MLP Model @v8"/>
+      <asset xsi:type="model:Model" versionID="8" name="Voting Model @v8"/>
+      <asset xsi:type="model:ModelPerformance" versionID="8" name="@v8">
+        <metadata key="Random Forest CV Scores" value="[0.8258427  0.79213483 0.84831461 0.78651685 0.85310734]"/>
+        <metadata key="Random Forest" value="0.8211832666793628"/>
+        <metadata key="Logistic Regression CV Scores" value="[0.78651685 0.79775281 0.78089888 0.78651685 0.81355932]"/>
+        <metadata key="Logistic Regression" value="0.7930489430584651"/>
+        <metadata key="XGB Classifier CV Scores" value="[0.80898876 0.83146067 0.89325843 0.84269663 0.84745763]"/>
+        <metadata key="XGB Classifier" value="0.8447724243001332"/>
+        <metadata key="SVC CV Scores" value="[0.8258427  0.82022472 0.80337079 0.80898876 0.85310734]"/>
+        <metadata key="SVC" value="0.8223068621849807"/>
+        <metadata key="MLP CV Scores" value="[0.76404494 0.80337079 0.83146067 0.80337079 0.85310734]"/>
+        <metadata key="MLP" value="0.8110709071288008"/>
+        <metadata key="Voting Classifier CV Scores" value="[0.8258427  0.83146067 0.85393258 0.80898876 0.85310734]"/>
+        <metadata key="Voting Classifier" value="0.8346664127467782"/>
+      </asset>
+    </run>
+    <run versionID="9" name="@v9">
+      <asset xsi:type="model:Dataset" versionID="1" name="Titanic @v1">
+        <metadata key="URI" value="/kaggle/input/titanic/data.csv"/>
+        <metadata key="Dataset Format" value="CSV"/>
+        <datafeature name="PassengerId" dtype="Int"/>
+        <datafeature name="Survived" dtype="Int"/>
+        <datafeature name="Pclass" dtype="Int"/>
+        <datafeature name="Name"/>
+        <datafeature name="Sex"/>
+        <datafeature name="Age" dtype="Int"/>
+        <datafeature name="SibSp" dtype="Int"/>
+        <datafeature name="Parch" dtype="Int"/>
+        <datafeature name="Ticket"/>
+        <datafeature name="Fare" dtype="Int"/>
+        <datafeature name="Cabin"/>
+        <datafeature name="Embarked"/>
+      </asset>
+      <asset xsi:type="model:TrainingSet" name="TrainingSet @v1">
+        <metadata key="URI" value="/kaggle/input/titanic/train.csv"/>
+        <metadata key="Dataset Format" value="CSV"/>
+      </asset>
+      <asset xsi:type="model:EvalSet" name="Titanic EvaluationSet @v1">
+        <metadata key="URI" value="/kaggle/input/titanic/test.csv"/>
+        <metadata key="Dataset Format" value="CSV"/>
+      </asset>
+      <asset xsi:type="model:Parameter" versionID="2" name="@v2">
+        <metadata key="Data Split random_seed" value="42"/>
+        <metadata key="Cross Validation" value="5"/>
+        <metadata key="rfc_n_estimators" value="300"/>
+        <metadata key="rfc_max_leaf" value="100"/>
+        <metadata key="rfc_random_state" value="0"/>
+        <metadata key="xgb_use_label_encoder" value="False"/>
+        <metadata key="xgb_verbosity" value="0"/>
+        <metadata key="xgb_gamma" value="0.5"/>
+        <metadata key="xgb_reg_lambda" value="10"/>
+      </asset>
+      <asset xsi:type="model:DataOriented" versionID="1" name="EDA &amp; Data preprocessing @v1" sourceFile="/kaggle/data_script.py @v1" inputs="//@experiment.0/@run.0/@asset.3" inputData="//@experiment.0/@run.0/@asset.0" outputData="//@experiment.0/@run.0/@asset.0">
+        <metadata key="Script Type" value="Python"/>
+        <metadata key="Name" value="EDA @v1"/>
+      </asset>
+      <asset xsi:type="model:ModelTrain" versionID="1" name="Model training @v1" sourceFile="/kaggle/train_model_script.py @v1" trainingset="//@experiment.0/@run.0/@asset.1">
+        <metadata key="Script Type" value="Python"/>
+      </asset>
+      <asset xsi:type="model:ModelEval" versionID="2" name="Model testing @v2" sourceFile="/kaggle/eval_model_script.py @v2" evalset="//@experiment.0/@run.0/@asset.2" inputModel="//@experiment.0/@run.2/@asset.8 //@experiment.0/@run.2/@asset.9 //@experiment.0/@run.2/@asset.10 //@experiment.0/@run.2/@asset.11 //@experiment.0/@run.2/@asset.12 //@experiment.0/@run.2/@asset.13">
+        <metadata key="Script Type" value="Python"/>
+      </asset>
+      <asset xsi:type="model:ExecutionInfo" versionID="9" name="@v9">
+        <metadata key="Run duration" value="36s"/>
+        <metadata key="Logs" value="/kaggle/experiment/logs @v9"/>
+      </asset>
+      <asset xsi:type="model:Model" versionID="9" name="Random Forest Model @v9"/>
+      <asset xsi:type="model:Model" versionID="9" name="Logistic Regression Model @v9"/>
+      <asset xsi:type="model:Model" versionID="9" name="XGB Model @v9"/>
+      <asset xsi:type="model:Model" versionID="9" name="SVC Model @v9"/>
+      <asset xsi:type="model:Model" versionID="9" name="MLP Model @v9"/>
+      <asset xsi:type="model:Model" versionID="9" name="Voting Model @v9"/>
+      <asset xsi:type="model:ModelPerformance" versionID="9" name="@v9">
+        <metadata key="Random Forest CV Scores" value="[0.8258427  0.79213483 0.84831461 0.78651685 0.85310734]"/>
+        <metadata key="Random Forest" value="0.8211832666793628"/>
+        <metadata key="Logistic Regression CV Scores" value="[0.78651685 0.79775281 0.78089888 0.78651685 0.81355932]"/>
+        <metadata key="Logistic Regression" value="0.7930489430584651"/>
+        <metadata key="XGB Classifier CV Scores" value="[0.80898876 0.83146067 0.89325843 0.84269663 0.84745763]"/>
+        <metadata key="XGB Classifier" value="0.8447724243001332"/>
+        <metadata key="SVC CV Scores" value="[0.8258427  0.82022472 0.80337079 0.80898876 0.85310734]"/>
+        <metadata key="SVC" value="0.8223068621849807"/>
+        <metadata key="MLP CV Scores" value="[0.76404494 0.80337079 0.83146067 0.80337079 0.85310734]"/>
+        <metadata key="MLP" value="0.8110709071288008"/>
+        <metadata key="Voting Classifier CV Scores" value="[0.8258427  0.83146067 0.85393258 0.80898876 0.85310734]"/>
+        <metadata key="Voting Classifier" value="0.8346664127467782"/>
+      </asset>
+    </run>
+    <run versionID="10" name="@v10">
+      <asset xsi:type="model:Dataset" versionID="1" name="Titanic @v1">
+        <metadata key="URI" value="/kaggle/input/titanic/data.csv"/>
+        <metadata key="Dataset Format" value="CSV"/>
+        <datafeature name="PassengerId" dtype="Int"/>
+        <datafeature name="Survived" dtype="Int"/>
+        <datafeature name="Pclass" dtype="Int"/>
+        <datafeature name="Name"/>
+        <datafeature name="Sex"/>
+        <datafeature name="Age" dtype="Int"/>
+        <datafeature name="SibSp" dtype="Int"/>
+        <datafeature name="Parch" dtype="Int"/>
+        <datafeature name="Ticket"/>
+        <datafeature name="Fare" dtype="Int"/>
+        <datafeature name="Cabin"/>
+        <datafeature name="Embarked"/>
+      </asset>
+      <asset xsi:type="model:TrainingSet" name="TrainingSet @v1">
+        <metadata key="URI" value="/kaggle/input/titanic/train.csv"/>
+        <metadata key="Dataset Format" value="CSV"/>
+      </asset>
+      <asset xsi:type="model:EvalSet" name="Titanic EvaluationSet @v1">
+        <metadata key="URI" value="/kaggle/input/titanic/test.csv"/>
+        <metadata key="Dataset Format" value="CSV"/>
+      </asset>
+      <asset xsi:type="model:Parameter" versionID="2" name="@v2">
+        <metadata key="Data Split random_seed" value="42"/>
+        <metadata key="Cross Validation" value="5"/>
+        <metadata key="rfc_n_estimators" value="300"/>
+        <metadata key="rfc_max_leaf" value="100"/>
+        <metadata key="rfc_random_state" value="0"/>
+        <metadata key="xgb_use_label_encoder" value="False"/>
+        <metadata key="xgb_verbosity" value="0"/>
+        <metadata key="xgb_gamma" value="0.5"/>
+        <metadata key="xgb_reg_lambda" value="10"/>
+      </asset>
+      <asset xsi:type="model:DataOriented" versionID="1" name="EDA &amp; Data preprocessing @v1" sourceFile="/kaggle/data_script.py @v1" inputs="//@experiment.0/@run.0/@asset.3" inputData="//@experiment.0/@run.0/@asset.0" outputData="//@experiment.0/@run.0/@asset.0">
+        <metadata key="Script Type" value="Python"/>
+        <metadata key="Name" value="EDA @v1"/>
+      </asset>
+      <asset xsi:type="model:ModelTrain" versionID="1" name="Model training @v1" sourceFile="/kaggle/train_model_script.py @v1" trainingset="//@experiment.0/@run.0/@asset.1">
+        <metadata key="Script Type" value="Python"/>
+      </asset>
+      <asset xsi:type="model:ModelEval" versionID="2" name="Model testing @v2" sourceFile="/kaggle/eval_model_script.py @v2" evalset="//@experiment.0/@run.0/@asset.2" inputModel="//@experiment.0/@run.2/@asset.8 //@experiment.0/@run.2/@asset.9 //@experiment.0/@run.2/@asset.10 //@experiment.0/@run.2/@asset.11 //@experiment.0/@run.2/@asset.12 //@experiment.0/@run.2/@asset.13">
+        <metadata key="Script Type" value="Python"/>
+      </asset>
+      <asset xsi:type="model:ExecutionInfo" versionID="10" name="@v10">
+        <metadata key="Run duration" value="76.6s"/>
+        <metadata key="Logs" value="/kaggle/experiment/logs @v10"/>
+      </asset>
+      <asset xsi:type="model:Model" versionID="10" name="Random Forest Model @v10"/>
+      <asset xsi:type="model:Model" versionID="10" name="Logistic Regression Model @v10"/>
+      <asset xsi:type="model:Model" versionID="10" name="XGB Model @v10"/>
+      <asset xsi:type="model:Model" versionID="10" name="SVC Model @v10"/>
+      <asset xsi:type="model:Model" versionID="10" name="MLP Model @v10"/>
+      <asset xsi:type="model:Model" versionID="10" name="Voting Model @v10"/>
+      <asset xsi:type="model:ModelPerformance" versionID="10" name="@v10">
+        <metadata key="Random Forest CV Scores" value="[0.8258427  0.79213483 0.84831461 0.78651685 0.85310734]"/>
+        <metadata key="Random Forest" value="0.8211832666793628"/>
+        <metadata key="Logistic Regression CV Scores" value="[0.78651685 0.79775281 0.78089888 0.78651685 0.81355932]"/>
+        <metadata key="Logistic Regression" value="0.7930489430584651"/>
+        <metadata key="XGB Classifier CV Scores" value="[0.80898876 0.83146067 0.89325843 0.84269663 0.84745763]"/>
+        <metadata key="XGB Classifier" value="0.8447724243001332"/>
+        <metadata key="SVC CV Scores" value="[0.8258427  0.82022472 0.80337079 0.80898876 0.85310734]"/>
+        <metadata key="SVC" value="0.8223068621849807"/>
+        <metadata key="MLP CV Scores" value="[0.76404494 0.80337079 0.83146067 0.80337079 0.85310734]"/>
+        <metadata key="MLP" value="0.8110709071288008"/>
+        <metadata key="Voting Classifier CV Scores" value="[0.8258427  0.83146067 0.85393258 0.80898876 0.85310734]"/>
+        <metadata key="Voting Classifier" value="0.8346664127467782"/>
+      </asset>
+    </run>
+    <run versionID="11" name="@v11">
+      <asset xsi:type="model:Dataset" versionID="1" name="Titanic @v1">
+        <metadata key="URI" value="/kaggle/input/titanic/data.csv"/>
+        <metadata key="Dataset Format" value="CSV"/>
+        <datafeature name="PassengerId" dtype="Int"/>
+        <datafeature name="Survived" dtype="Int"/>
+        <datafeature name="Pclass" dtype="Int"/>
+        <datafeature name="Name"/>
+        <datafeature name="Sex"/>
+        <datafeature name="Age" dtype="Int"/>
+        <datafeature name="SibSp" dtype="Int"/>
+        <datafeature name="Parch" dtype="Int"/>
+        <datafeature name="Ticket"/>
+        <datafeature name="Fare" dtype="Int"/>
+        <datafeature name="Cabin"/>
+        <datafeature name="Embarked"/>
+      </asset>
+      <asset xsi:type="model:TrainingSet" name="TrainingSet @v1">
+        <metadata key="URI" value="/kaggle/input/titanic/train.csv"/>
+        <metadata key="Dataset Format" value="CSV"/>
+      </asset>
+      <asset xsi:type="model:EvalSet" name="Titanic EvaluationSet @v1">
+        <metadata key="URI" value="/kaggle/input/titanic/test.csv"/>
+        <metadata key="Dataset Format" value="CSV"/>
+      </asset>
+      <asset xsi:type="model:Parameter" versionID="2" name="@v2">
+        <metadata key="Data Split random_seed" value="42"/>
+        <metadata key="Cross Validation" value="5"/>
+        <metadata key="rfc_n_estimators" value="300"/>
+        <metadata key="rfc_max_leaf" value="100"/>
+        <metadata key="rfc_random_state" value="0"/>
+        <metadata key="xgb_use_label_encoder" value="False"/>
+        <metadata key="xgb_verbosity" value="0"/>
+        <metadata key="xgb_gamma" value="0.5"/>
+        <metadata key="xgb_reg_lambda" value="10"/>
+      </asset>
+      <asset xsi:type="model:DataOriented" versionID="1" name="EDA &amp; Data preprocessing @v1" sourceFile="/kaggle/data_script.py @v1" inputs="//@experiment.0/@run.0/@asset.3" inputData="//@experiment.0/@run.0/@asset.0" outputData="//@experiment.0/@run.0/@asset.0">
+        <metadata key="Script Type" value="Python"/>
+        <metadata key="Name" value="EDA @v1"/>
+      </asset>
+      <asset xsi:type="model:ModelTrain" versionID="1" name="Model training @v1" sourceFile="/kaggle/train_model_script.py @v1" trainingset="//@experiment.0/@run.0/@asset.1">
+        <metadata key="Script Type" value="Python"/>
+      </asset>
+      <asset xsi:type="model:ModelEval" versionID="2" name="Model testing @v2" sourceFile="/kaggle/eval_model_script.py @v2" evalset="//@experiment.0/@run.0/@asset.2" inputModel="//@experiment.0/@run.2/@asset.8 //@experiment.0/@run.2/@asset.9 //@experiment.0/@run.2/@asset.10 //@experiment.0/@run.2/@asset.11 //@experiment.0/@run.2/@asset.12 //@experiment.0/@run.2/@asset.13">
+        <metadata key="Script Type" value="Python"/>
+      </asset>
+      <asset xsi:type="model:ExecutionInfo" versionID="11" name="@v11">
+        <metadata key="Run duration" value="69s"/>
+        <metadata key="Logs" value="/kaggle/experiment/logs @v11"/>
+      </asset>
+      <asset xsi:type="model:Model" versionID="11" name="Random Forest Model @v11"/>
+      <asset xsi:type="model:Model" versionID="11" name="Logistic Regression Model @v11"/>
+      <asset xsi:type="model:Model" versionID="11" name="XGB Model @v11"/>
+      <asset xsi:type="model:Model" versionID="11" name="SVC Model @v11"/>
+      <asset xsi:type="model:Model" versionID="11" name="MLP Model @v11"/>
+      <asset xsi:type="model:Model" versionID="11" name="Voting Model @v11"/>
+      <asset xsi:type="model:ModelPerformance" versionID="11" name="@v11">
+        <metadata key="Random Forest CV Scores" value="[0.8258427  0.79213483 0.84831461 0.78651685 0.85310734]"/>
+        <metadata key="Random Forest" value="0.8211832666793628"/>
+        <metadata key="Logistic Regression CV Scores" value="[0.78651685 0.79775281 0.78089888 0.78651685 0.81355932]"/>
+        <metadata key="Logistic Regression" value="0.7930489430584651"/>
+        <metadata key="XGB Classifier CV Scores" value="[0.80898876 0.83146067 0.89325843 0.84269663 0.84745763]"/>
+        <metadata key="XGB Classifier" value="0.8447724243001332"/>
+        <metadata key="SVC CV Scores" value="[0.8258427  0.82022472 0.80337079 0.80898876 0.85310734]"/>
+        <metadata key="SVC" value="0.8223068621849807"/>
+        <metadata key="MLP CV Scores" value="[0.76404494 0.80337079 0.83146067 0.80337079 0.85310734]"/>
+        <metadata key="MLP" value="0.8110709071288008"/>
+        <metadata key="Voting Classifier CV Scores" value="[0.8258427  0.83146067 0.85393258 0.80898876 0.85310734]"/>
+        <metadata key="Voting Classifier" value="0.8346664127467782"/>
+      </asset>
+    </run>
+    <run versionID="12" name="@v12">
+      <asset xsi:type="model:Dataset" versionID="1" name="Titanic @v1">
+        <metadata key="URI" value="/kaggle/input/titanic/data.csv"/>
+        <metadata key="Dataset Format" value="CSV"/>
+        <datafeature name="PassengerId" dtype="Int"/>
+        <datafeature name="Survived" dtype="Int"/>
+        <datafeature name="Pclass" dtype="Int"/>
+        <datafeature name="Name"/>
+        <datafeature name="Sex"/>
+        <datafeature name="Age" dtype="Int"/>
+        <datafeature name="SibSp" dtype="Int"/>
+        <datafeature name="Parch" dtype="Int"/>
+        <datafeature name="Ticket"/>
+        <datafeature name="Fare" dtype="Int"/>
+        <datafeature name="Cabin"/>
+        <datafeature name="Embarked"/>
+      </asset>
+      <asset xsi:type="model:TrainingSet" name="TrainingSet @v1">
+        <metadata key="URI" value="/kaggle/input/titanic/train.csv"/>
+        <metadata key="Dataset Format" value="CSV"/>
+      </asset>
+      <asset xsi:type="model:EvalSet" name="Titanic EvaluationSet @v1">
+        <metadata key="URI" value="/kaggle/input/titanic/test.csv"/>
+        <metadata key="Dataset Format" value="CSV"/>
+      </asset>
+      <asset xsi:type="model:Parameter" versionID="2" name="@v2">
+        <metadata key="Data Split random_seed" value="42"/>
+        <metadata key="Cross Validation" value="5"/>
+        <metadata key="rfc_n_estimators" value="300"/>
+        <metadata key="rfc_max_leaf" value="100"/>
+        <metadata key="rfc_random_state" value="0"/>
+        <metadata key="xgb_use_label_encoder" value="False"/>
+        <metadata key="xgb_verbosity" value="0"/>
+        <metadata key="xgb_gamma" value="0.5"/>
+        <metadata key="xgb_reg_lambda" value="10"/>
+      </asset>
+      <asset xsi:type="model:DataOriented" versionID="1" name="EDA &amp; Data preprocessing @v1" sourceFile="/kaggle/data_script.py @v1" inputs="//@experiment.0/@run.0/@asset.3" inputData="//@experiment.0/@run.0/@asset.0" outputData="//@experiment.0/@run.0/@asset.0">
+        <metadata key="Script Type" value="Python"/>
+        <metadata key="Name" value="EDA @v1"/>
+      </asset>
+      <asset xsi:type="model:ModelTrain" versionID="1" name="Model training @v1" sourceFile="/kaggle/train_model_script.py @v1" trainingset="//@experiment.0/@run.0/@asset.1">
+        <metadata key="Script Type" value="Python"/>
+      </asset>
+      <asset xsi:type="model:ModelEval" versionID="2" name="Model testing @v2" sourceFile="/kaggle/eval_model_script.py @v2" evalset="//@experiment.0/@run.0/@asset.2" inputModel="//@experiment.0/@run.2/@asset.8 //@experiment.0/@run.2/@asset.9 //@experiment.0/@run.2/@asset.10 //@experiment.0/@run.2/@asset.11 //@experiment.0/@run.2/@asset.12 //@experiment.0/@run.2/@asset.13">
+        <metadata key="Script Type" value="Python"/>
+      </asset>
+      <asset xsi:type="model:ExecutionInfo" versionID="12" name="@v12">
+        <metadata key="Run duration" value="80s"/>
+        <metadata key="Logs" value="/kaggle/experiment/logs @v12"/>
+      </asset>
+      <asset xsi:type="model:Model" versionID="12" name="Random Forest Model @v12"/>
+      <asset xsi:type="model:Model" versionID="12" name="Logistic Regression Model @v12"/>
+      <asset xsi:type="model:Model" versionID="12" name="XGB Model @v12"/>
+      <asset xsi:type="model:Model" versionID="12" name="SVC Model @v12"/>
+      <asset xsi:type="model:Model" versionID="12" name="MLP Model @v12"/>
+      <asset xsi:type="model:Model" versionID="12" name="Voting Model @v12"/>
+      <asset xsi:type="model:ModelPerformance" versionID="12" name="@v12">
+        <metadata key="Random Forest CV Scores" value="[0.8258427  0.79213483 0.84831461 0.78651685 0.85310734]"/>
+        <metadata key="Random Forest" value="0.8211832666793628"/>
+        <metadata key="Logistic Regression CV Scores" value="[0.78651685 0.79775281 0.78089888 0.78651685 0.81355932]"/>
+        <metadata key="Logistic Regression" value="0.7930489430584651"/>
+        <metadata key="XGB Classifier CV Scores" value="[0.80898876 0.83146067 0.89325843 0.84269663 0.84745763]"/>
+        <metadata key="XGB Classifier" value="0.8447724243001332"/>
+        <metadata key="SVC CV Scores" value="[0.8258427  0.82022472 0.80337079 0.80898876 0.85310734]"/>
+        <metadata key="SVC" value="0.8223068621849807"/>
+        <metadata key="MLP CV Scores" value="[0.76404494 0.80337079 0.83146067 0.80337079 0.85310734]"/>
+        <metadata key="MLP" value="0.8110709071288008"/>
+        <metadata key="Voting Classifier CV Scores" value="[0.8258427  0.83146067 0.85393258 0.80898876 0.85310734]"/>
+        <metadata key="Voting Classifier" value="0.8346664127467782"/>
+      </asset>
+    </run>
+    <run versionID="13" name="@v13">
+      <asset xsi:type="model:Dataset" versionID="1" name="Titanic @v1">
+        <metadata key="URI" value="/kaggle/input/titanic/data.csv"/>
+        <metadata key="Dataset Format" value="CSV"/>
+        <datafeature name="PassengerId" dtype="Int"/>
+        <datafeature name="Survived" dtype="Int"/>
+        <datafeature name="Pclass" dtype="Int"/>
+        <datafeature name="Name"/>
+        <datafeature name="Sex"/>
+        <datafeature name="Age" dtype="Int"/>
+        <datafeature name="SibSp" dtype="Int"/>
+        <datafeature name="Parch" dtype="Int"/>
+        <datafeature name="Ticket"/>
+        <datafeature name="Fare" dtype="Int"/>
+        <datafeature name="Cabin"/>
+        <datafeature name="Embarked"/>
+      </asset>
+      <asset xsi:type="model:TrainingSet" name="TrainingSet @v1">
+        <metadata key="URI" value="/kaggle/input/titanic/train.csv"/>
+        <metadata key="Dataset Format" value="CSV"/>
+      </asset>
+      <asset xsi:type="model:EvalSet" name="Titanic EvaluationSet @v1">
+        <metadata key="URI" value="/kaggle/input/titanic/test.csv"/>
+        <metadata key="Dataset Format" value="CSV"/>
+      </asset>
+      <asset xsi:type="model:Parameter" versionID="2" name="@v2">
+        <metadata key="Data Split random_seed" value="42"/>
+        <metadata key="Cross Validation" value="5"/>
+        <metadata key="rfc_n_estimators" value="300"/>
+        <metadata key="rfc_max_leaf" value="100"/>
+        <metadata key="rfc_random_state" value="0"/>
+        <metadata key="xgb_use_label_encoder" value="False"/>
+        <metadata key="xgb_verbosity" value="0"/>
+        <metadata key="xgb_gamma" value="0.5"/>
+        <metadata key="xgb_reg_lambda" value="10"/>
+      </asset>
+      <asset xsi:type="model:DataOriented" versionID="1" name="EDA &amp; Data preprocessing @v1" sourceFile="/kaggle/data_script.py @v1" inputs="//@experiment.0/@run.0/@asset.3" inputData="//@experiment.0/@run.0/@asset.0" outputData="//@experiment.0/@run.0/@asset.0">
+        <metadata key="Script Type" value="Python"/>
+        <metadata key="Name" value="EDA @v1"/>
+      </asset>
+      <asset xsi:type="model:ModelTrain" versionID="1" name="Model training @v1" sourceFile="/kaggle/train_model_script.py @v1" trainingset="//@experiment.0/@run.0/@asset.1">
+        <metadata key="Script Type" value="Python"/>
+      </asset>
+      <asset xsi:type="model:ModelEval" versionID="2" name="Model testing @v2" sourceFile="/kaggle/eval_model_script.py @v2" evalset="//@experiment.0/@run.0/@asset.2" inputModel="//@experiment.0/@run.2/@asset.8 //@experiment.0/@run.2/@asset.9 //@experiment.0/@run.2/@asset.10 //@experiment.0/@run.2/@asset.11 //@experiment.0/@run.2/@asset.12 //@experiment.0/@run.2/@asset.13">
+        <metadata key="Script Type" value="Python"/>
+      </asset>
+      <asset xsi:type="model:ExecutionInfo" versionID="13" name="@v13">
+        <metadata key="Run duration" value="67s"/>
+        <metadata key="Logs" value="/kaggle/experiment/logs @v13"/>
+      </asset>
+      <asset xsi:type="model:Model" versionID="13" name="Random Forest Model @v13"/>
+      <asset xsi:type="model:Model" versionID="13" name="Logistic Regression Model @v13"/>
+      <asset xsi:type="model:Model" versionID="13" name="XGB Model @v13"/>
+      <asset xsi:type="model:Model" versionID="13" name="SVC Model @v13"/>
+      <asset xsi:type="model:Model" versionID="13" name="MLP Model @v13"/>
+      <asset xsi:type="model:Model" versionID="13" name="Voting Model @v13"/>
+      <asset xsi:type="model:ModelPerformance" versionID="13" name="@v13">
+        <metadata key="Random Forest CV Scores" value="[0.8258427  0.79213483 0.84831461 0.78651685 0.85310734]"/>
+        <metadata key="Random Forest" value="0.8211832666793628"/>
+        <metadata key="Logistic Regression CV Scores" value="[0.78651685 0.79775281 0.78089888 0.78651685 0.81355932]"/>
+        <metadata key="Logistic Regression" value="0.7930489430584651"/>
+        <metadata key="XGB Classifier CV Scores" value="[0.80898876 0.83146067 0.89325843 0.84269663 0.84745763]"/>
+        <metadata key="XGB Classifier" value="0.8447724243001332"/>
+        <metadata key="SVC CV Scores" value="[0.8258427  0.82022472 0.80337079 0.80898876 0.85310734]"/>
+        <metadata key="SVC" value="0.8223068621849807"/>
+        <metadata key="MLP CV Scores" value="[0.76404494 0.80337079 0.83146067 0.80337079 0.85310734]"/>
+        <metadata key="MLP" value="0.8110709071288008"/>
+        <metadata key="Voting Classifier CV Scores" value="[0.8258427  0.83146067 0.85393258 0.80898876 0.85310734]"/>
+        <metadata key="Voting Classifier" value="0.8346664127467782"/>
+      </asset>
+    </run>
+    <run versionID="14" name="@v14">
+      <asset xsi:type="model:Dataset" versionID="1" name="Titanic @v1">
+        <metadata key="URI" value="/kaggle/input/titanic/data.csv"/>
+        <metadata key="Dataset Format" value="CSV"/>
+        <datafeature name="PassengerId" dtype="Int"/>
+        <datafeature name="Survived" dtype="Int"/>
+        <datafeature name="Pclass" dtype="Int"/>
+        <datafeature name="Name"/>
+        <datafeature name="Sex"/>
+        <datafeature name="Age" dtype="Int"/>
+        <datafeature name="SibSp" dtype="Int"/>
+        <datafeature name="Parch" dtype="Int"/>
+        <datafeature name="Ticket"/>
+        <datafeature name="Fare" dtype="Int"/>
+        <datafeature name="Cabin"/>
+        <datafeature name="Embarked"/>
+      </asset>
+      <asset xsi:type="model:TrainingSet" name="TrainingSet @v1">
+        <metadata key="URI" value="/kaggle/input/titanic/train.csv"/>
+        <metadata key="Dataset Format" value="CSV"/>
+      </asset>
+      <asset xsi:type="model:EvalSet" name="Titanic EvaluationSet @v1">
+        <metadata key="URI" value="/kaggle/input/titanic/test.csv"/>
+        <metadata key="Dataset Format" value="CSV"/>
+      </asset>
+      <asset xsi:type="model:Parameter" versionID="2" name="@v2">
+        <metadata key="Data Split random_seed" value="42"/>
+        <metadata key="Cross Validation" value="5"/>
+        <metadata key="rfc_n_estimators" value="300"/>
+        <metadata key="rfc_max_leaf" value="100"/>
+        <metadata key="rfc_random_state" value="0"/>
+        <metadata key="xgb_use_label_encoder" value="False"/>
+        <metadata key="xgb_verbosity" value="0"/>
+        <metadata key="xgb_gamma" value="0.5"/>
+        <metadata key="xgb_reg_lambda" value="10"/>
+      </asset>
+      <asset xsi:type="model:DataOriented" versionID="1" name="EDA &amp; Data preprocessing @v1" sourceFile="/kaggle/data_script.py @v1" inputs="//@experiment.0/@run.0/@asset.3" inputData="//@experiment.0/@run.0/@asset.0" outputData="//@experiment.0/@run.0/@asset.0">
+        <metadata key="Script Type" value="Python"/>
+        <metadata key="Name" value="EDA @v1"/>
+      </asset>
+      <asset xsi:type="model:ModelTrain" versionID="1" name="Model training @v1" sourceFile="/kaggle/train_model_script.py @v1" trainingset="//@experiment.0/@run.0/@asset.1">
+        <metadata key="Script Type" value="Python"/>
+      </asset>
+      <asset xsi:type="model:ModelEval" versionID="2" name="Model testing @v2" sourceFile="/kaggle/eval_model_script.py @v2" evalset="//@experiment.0/@run.0/@asset.2" inputModel="//@experiment.0/@run.2/@asset.8 //@experiment.0/@run.2/@asset.9 //@experiment.0/@run.2/@asset.10 //@experiment.0/@run.2/@asset.11 //@experiment.0/@run.2/@asset.12 //@experiment.0/@run.2/@asset.13">
+        <metadata key="Script Type" value="Python"/>
+      </asset>
+      <asset xsi:type="model:ExecutionInfo" versionID="14" name="@v14">
+        <metadata key="Run duration" value="36s"/>
+        <metadata key="Logs" value="/kaggle/experiment/logs @v14"/>
+      </asset>
+      <asset xsi:type="model:Model" versionID="14" name="Random Forest Model @v14"/>
+      <asset xsi:type="model:Model" versionID="14" name="Logistic Regression Model @v14"/>
+      <asset xsi:type="model:Model" versionID="14" name="XGB Model @v14"/>
+      <asset xsi:type="model:Model" versionID="14" name="SVC Model @v14"/>
+      <asset xsi:type="model:Model" versionID="14" name="MLP Model @v14"/>
+      <asset xsi:type="model:Model" versionID="14" name="Voting Model @v14"/>
+      <asset xsi:type="model:ModelPerformance" versionID="14" name="@v14">
+        <metadata key="Random Forest CV Scores" value="[0.8258427  0.79213483 0.84831461 0.78651685 0.85310734]"/>
+        <metadata key="Random Forest" value="0.8211832666793628"/>
+        <metadata key="Logistic Regression CV Scores" value="[0.78651685 0.79775281 0.78089888 0.78651685 0.81355932]"/>
+        <metadata key="Logistic Regression" value="0.7930489430584651"/>
+        <metadata key="XGB Classifier CV Scores" value="[0.80898876 0.83146067 0.89325843 0.84269663 0.84745763]"/>
+        <metadata key="XGB Classifier" value="0.8447724243001332"/>
+        <metadata key="SVC CV Scores" value="[0.8258427  0.82022472 0.80337079 0.80898876 0.85310734]"/>
+        <metadata key="SVC" value="0.8223068621849807"/>
+        <metadata key="MLP CV Scores" value="[0.76404494 0.80337079 0.83146067 0.80337079 0.85310734]"/>
+        <metadata key="MLP" value="0.8110709071288008"/>
+        <metadata key="Voting Classifier CV Scores" value="[0.8258427  0.83146067 0.85393258 0.80898876 0.85310734]"/>
+        <metadata key="Voting Classifier" value="0.8346664127467782"/>
+      </asset>
+    </run>
+    <run versionID="15" name="@v15">
+      <asset xsi:type="model:Dataset" versionID="1" name="Titanic @v1">
+        <metadata key="URI" value="/kaggle/input/titanic/data.csv"/>
+        <metadata key="Dataset Format" value="CSV"/>
+        <datafeature name="PassengerId" dtype="Int"/>
+        <datafeature name="Survived" dtype="Int"/>
+        <datafeature name="Pclass" dtype="Int"/>
+        <datafeature name="Name"/>
+        <datafeature name="Sex"/>
+        <datafeature name="Age" dtype="Int"/>
+        <datafeature name="SibSp" dtype="Int"/>
+        <datafeature name="Parch" dtype="Int"/>
+        <datafeature name="Ticket"/>
+        <datafeature name="Fare" dtype="Int"/>
+        <datafeature name="Cabin"/>
+        <datafeature name="Embarked"/>
+      </asset>
+      <asset xsi:type="model:TrainingSet" name="TrainingSet @v1">
+        <metadata key="URI" value="/kaggle/input/titanic/train.csv"/>
+        <metadata key="Dataset Format" value="CSV"/>
+      </asset>
+      <asset xsi:type="model:EvalSet" name="Titanic EvaluationSet @v1">
+        <metadata key="URI" value="/kaggle/input/titanic/test.csv"/>
+        <metadata key="Dataset Format" value="CSV"/>
+      </asset>
+      <asset xsi:type="model:Parameter" versionID="2" name="@v2">
+        <metadata key="Data Split random_seed" value="42"/>
+        <metadata key="Cross Validation" value="5"/>
+        <metadata key="rfc_n_estimators" value="300"/>
+        <metadata key="rfc_max_leaf" value="100"/>
+        <metadata key="rfc_random_state" value="0"/>
+        <metadata key="xgb_use_label_encoder" value="False"/>
+        <metadata key="xgb_verbosity" value="0"/>
+        <metadata key="xgb_gamma" value="0.5"/>
+        <metadata key="xgb_reg_lambda" value="10"/>
+      </asset>
+      <asset xsi:type="model:DataOriented" versionID="1" name="EDA &amp; Data preprocessing @v1" sourceFile="/kaggle/data_script.py @v1" inputs="//@experiment.0/@run.0/@asset.3" inputData="//@experiment.0/@run.0/@asset.0" outputData="//@experiment.0/@run.0/@asset.0">
+        <metadata key="Script Type" value="Python"/>
+        <metadata key="Name" value="EDA @v1"/>
+      </asset>
+      <asset xsi:type="model:ModelTrain" versionID="1" name="Model training @v1" sourceFile="/kaggle/train_model_script.py @v1" trainingset="//@experiment.0/@run.0/@asset.1">
+        <metadata key="Script Type" value="Python"/>
+      </asset>
+      <asset xsi:type="model:ModelEval" versionID="2" name="Model testing @v2" sourceFile="/kaggle/eval_model_script.py @v2" evalset="//@experiment.0/@run.0/@asset.2" inputModel="//@experiment.0/@run.2/@asset.8 //@experiment.0/@run.2/@asset.9 //@experiment.0/@run.2/@asset.10 //@experiment.0/@run.2/@asset.11 //@experiment.0/@run.2/@asset.12 //@experiment.0/@run.2/@asset.13">
+        <metadata key="Script Type" value="Python"/>
+      </asset>
+      <asset xsi:type="model:ExecutionInfo" versionID="15" name="@v15">
+        <metadata key="Run duration" value="76.6s"/>
+        <metadata key="Logs" value="/kaggle/experiment/logs @v15"/>
+      </asset>
+      <asset xsi:type="model:Model" versionID="15" name="Random Forest Model @v15"/>
+      <asset xsi:type="model:Model" versionID="15" name="Logistic Regression Model @v15"/>
+      <asset xsi:type="model:Model" versionID="15" name="XGB Model @v15"/>
+      <asset xsi:type="model:Model" versionID="15" name="SVC Model @v15"/>
+      <asset xsi:type="model:Model" versionID="15" name="MLP Model @v15"/>
+      <asset xsi:type="model:Model" versionID="15" name="Voting Model @v15"/>
+      <asset xsi:type="model:ModelPerformance" versionID="15" name="@v15">
+        <metadata key="Random Forest CV Scores" value="[0.8258427  0.79213483 0.84831461 0.78651685 0.85310734]"/>
+        <metadata key="Random Forest" value="0.8211832666793628"/>
+        <metadata key="Logistic Regression CV Scores" value="[0.78651685 0.79775281 0.78089888 0.78651685 0.81355932]"/>
+        <metadata key="Logistic Regression" value="0.7930489430584651"/>
+        <metadata key="XGB Classifier CV Scores" value="[0.80898876 0.83146067 0.89325843 0.84269663 0.84745763]"/>
+        <metadata key="XGB Classifier" value="0.8447724243001332"/>
+        <metadata key="SVC CV Scores" value="[0.8258427  0.82022472 0.80337079 0.80898876 0.85310734]"/>
+        <metadata key="SVC" value="0.8223068621849807"/>
+        <metadata key="MLP CV Scores" value="[0.76404494 0.80337079 0.83146067 0.80337079 0.85310734]"/>
+        <metadata key="MLP" value="0.8110709071288008"/>
+        <metadata key="Voting Classifier CV Scores" value="[0.8258427  0.83146067 0.85393258 0.80898876 0.85310734]"/>
+        <metadata key="Voting Classifier" value="0.8346664127467782"/>
+      </asset>
+    </run>
+    <run versionID="16" name="@v16">
+      <asset xsi:type="model:Dataset" versionID="1" name="Titanic @v1">
+        <metadata key="URI" value="/kaggle/input/titanic/data.csv"/>
+        <metadata key="Dataset Format" value="CSV"/>
+        <datafeature name="PassengerId" dtype="Int"/>
+        <datafeature name="Survived" dtype="Int"/>
+        <datafeature name="Pclass" dtype="Int"/>
+        <datafeature name="Name"/>
+        <datafeature name="Sex"/>
+        <datafeature name="Age" dtype="Int"/>
+        <datafeature name="SibSp" dtype="Int"/>
+        <datafeature name="Parch" dtype="Int"/>
+        <datafeature name="Ticket"/>
+        <datafeature name="Fare" dtype="Int"/>
+        <datafeature name="Cabin"/>
+        <datafeature name="Embarked"/>
+      </asset>
+      <asset xsi:type="model:TrainingSet" name="TrainingSet @v1">
+        <metadata key="URI" value="/kaggle/input/titanic/train.csv"/>
+        <metadata key="Dataset Format" value="CSV"/>
+      </asset>
+      <asset xsi:type="model:EvalSet" name="Titanic EvaluationSet @v1">
+        <metadata key="URI" value="/kaggle/input/titanic/test.csv"/>
+        <metadata key="Dataset Format" value="CSV"/>
+      </asset>
+      <asset xsi:type="model:Parameter" versionID="2" name="@v2">
+        <metadata key="Data Split random_seed" value="42"/>
+        <metadata key="Cross Validation" value="5"/>
+        <metadata key="rfc_n_estimators" value="300"/>
+        <metadata key="rfc_max_leaf" value="100"/>
+        <metadata key="rfc_random_state" value="0"/>
+        <metadata key="xgb_use_label_encoder" value="False"/>
+        <metadata key="xgb_verbosity" value="0"/>
+        <metadata key="xgb_gamma" value="0.5"/>
+        <metadata key="xgb_reg_lambda" value="10"/>
+      </asset>
+      <asset xsi:type="model:DataOriented" versionID="1" name="EDA &amp; Data preprocessing @v1" sourceFile="/kaggle/data_script.py @v1" inputs="//@experiment.0/@run.0/@asset.3" inputData="//@experiment.0/@run.0/@asset.0" outputData="//@experiment.0/@run.0/@asset.0">
+        <metadata key="Script Type" value="Python"/>
+        <metadata key="Name" value="EDA @v1"/>
+      </asset>
+      <asset xsi:type="model:ModelTrain" versionID="1" name="Model training @v1" sourceFile="/kaggle/train_model_script.py @v1" trainingset="//@experiment.0/@run.0/@asset.1">
+        <metadata key="Script Type" value="Python"/>
+      </asset>
+      <asset xsi:type="model:ModelEval" versionID="2" name="Model testing @v2" sourceFile="/kaggle/eval_model_script.py @v2" evalset="//@experiment.0/@run.0/@asset.2" inputModel="//@experiment.0/@run.2/@asset.8 //@experiment.0/@run.2/@asset.9 //@experiment.0/@run.2/@asset.10 //@experiment.0/@run.2/@asset.11 //@experiment.0/@run.2/@asset.12 //@experiment.0/@run.2/@asset.13">
+        <metadata key="Script Type" value="Python"/>
+      </asset>
+      <asset xsi:type="model:ExecutionInfo" versionID="16" name="@v16">
+        <metadata key="Run duration" value="69s"/>
+        <metadata key="Logs" value="/kaggle/experiment/logs @v16"/>
+      </asset>
+      <asset xsi:type="model:Model" versionID="16" name="Random Forest Model @v16"/>
+      <asset xsi:type="model:Model" versionID="16" name="Logistic Regression Model @v16"/>
+      <asset xsi:type="model:Model" versionID="16" name="XGB Model @v16"/>
+      <asset xsi:type="model:Model" versionID="16" name="SVC Model @v16"/>
+      <asset xsi:type="model:Model" versionID="16" name="MLP Model @v16"/>
+      <asset xsi:type="model:Model" versionID="16" name="Voting Model @v16"/>
+      <asset xsi:type="model:ModelPerformance" versionID="16" name="@v16">
+        <metadata key="Random Forest CV Scores" value="[0.8258427  0.79213483 0.84831461 0.78651685 0.85310734]"/>
+        <metadata key="Random Forest" value="0.8211832666793628"/>
+        <metadata key="Logistic Regression CV Scores" value="[0.78651685 0.79775281 0.78089888 0.78651685 0.81355932]"/>
+        <metadata key="Logistic Regression" value="0.7930489430584651"/>
+        <metadata key="XGB Classifier CV Scores" value="[0.80898876 0.83146067 0.89325843 0.84269663 0.84745763]"/>
+        <metadata key="XGB Classifier" value="0.8447724243001332"/>
+        <metadata key="SVC CV Scores" value="[0.8258427  0.82022472 0.80337079 0.80898876 0.85310734]"/>
+        <metadata key="SVC" value="0.8223068621849807"/>
+        <metadata key="MLP CV Scores" value="[0.76404494 0.80337079 0.83146067 0.80337079 0.85310734]"/>
+        <metadata key="MLP" value="0.8110709071288008"/>
+        <metadata key="Voting Classifier CV Scores" value="[0.8258427  0.83146067 0.85393258 0.80898876 0.85310734]"/>
+        <metadata key="Voting Classifier" value="0.8346664127467782"/>
+      </asset>
+    </run>
+    <run versionID="17" name="@v17">
+      <asset xsi:type="model:Dataset" versionID="1" name="Titanic @v1">
+        <metadata key="URI" value="/kaggle/input/titanic/data.csv"/>
+        <metadata key="Dataset Format" value="CSV"/>
+        <datafeature name="PassengerId" dtype="Int"/>
+        <datafeature name="Survived" dtype="Int"/>
+        <datafeature name="Pclass" dtype="Int"/>
+        <datafeature name="Name"/>
+        <datafeature name="Sex"/>
+        <datafeature name="Age" dtype="Int"/>
+        <datafeature name="SibSp" dtype="Int"/>
+        <datafeature name="Parch" dtype="Int"/>
+        <datafeature name="Ticket"/>
+        <datafeature name="Fare" dtype="Int"/>
+        <datafeature name="Cabin"/>
+        <datafeature name="Embarked"/>
+      </asset>
+      <asset xsi:type="model:TrainingSet" name="TrainingSet @v1">
+        <metadata key="URI" value="/kaggle/input/titanic/train.csv"/>
+        <metadata key="Dataset Format" value="CSV"/>
+      </asset>
+      <asset xsi:type="model:EvalSet" name="Titanic EvaluationSet @v1">
+        <metadata key="URI" value="/kaggle/input/titanic/test.csv"/>
+        <metadata key="Dataset Format" value="CSV"/>
+      </asset>
+      <asset xsi:type="model:Parameter" versionID="2" name="@v2">
+        <metadata key="Data Split random_seed" value="42"/>
+        <metadata key="Cross Validation" value="5"/>
+        <metadata key="rfc_n_estimators" value="300"/>
+        <metadata key="rfc_max_leaf" value="100"/>
+        <metadata key="rfc_random_state" value="0"/>
+        <metadata key="xgb_use_label_encoder" value="False"/>
+        <metadata key="xgb_verbosity" value="0"/>
+        <metadata key="xgb_gamma" value="0.5"/>
+        <metadata key="xgb_reg_lambda" value="10"/>
+      </asset>
+      <asset xsi:type="model:DataOriented" versionID="1" name="EDA &amp; Data preprocessing @v1" sourceFile="/kaggle/data_script.py @v1" inputs="//@experiment.0/@run.0/@asset.3" inputData="//@experiment.0/@run.0/@asset.0" outputData="//@experiment.0/@run.0/@asset.0">
+        <metadata key="Script Type" value="Python"/>
+        <metadata key="Name" value="EDA @v1"/>
+      </asset>
+      <asset xsi:type="model:ModelTrain" versionID="1" name="Model training @v1" sourceFile="/kaggle/train_model_script.py @v1" trainingset="//@experiment.0/@run.0/@asset.1">
+        <metadata key="Script Type" value="Python"/>
+      </asset>
+      <asset xsi:type="model:ModelEval" versionID="2" name="Model testing @v2" sourceFile="/kaggle/eval_model_script.py @v2" evalset="//@experiment.0/@run.0/@asset.2" inputModel="//@experiment.0/@run.2/@asset.8 //@experiment.0/@run.2/@asset.9 //@experiment.0/@run.2/@asset.10 //@experiment.0/@run.2/@asset.11 //@experiment.0/@run.2/@asset.12 //@experiment.0/@run.2/@asset.13">
+        <metadata key="Script Type" value="Python"/>
+      </asset>
+      <asset xsi:type="model:ExecutionInfo" versionID="17" name="@v17">
+        <metadata key="Run duration" value="80s"/>
+        <metadata key="Logs" value="/kaggle/experiment/logs @v17"/>
+      </asset>
+      <asset xsi:type="model:Model" versionID="17" name="Random Forest Model @v17"/>
+      <asset xsi:type="model:Model" versionID="17" name="Logistic Regression Model @v17"/>
+      <asset xsi:type="model:Model" versionID="17" name="XGB Model @v17"/>
+      <asset xsi:type="model:Model" versionID="17" name="SVC Model @v17"/>
+      <asset xsi:type="model:Model" versionID="17" name="MLP Model @v17"/>
+      <asset xsi:type="model:Model" versionID="17" name="Voting Model @v17"/>
+      <asset xsi:type="model:ModelPerformance" versionID="17" name="@v17">
+        <metadata key="Random Forest CV Scores" value="[0.8258427  0.79213483 0.84831461 0.78651685 0.85310734]"/>
+        <metadata key="Random Forest" value="0.8211832666793628"/>
+        <metadata key="Logistic Regression CV Scores" value="[0.78651685 0.79775281 0.78089888 0.78651685 0.81355932]"/>
+        <metadata key="Logistic Regression" value="0.7930489430584651"/>
+        <metadata key="XGB Classifier CV Scores" value="[0.80898876 0.83146067 0.89325843 0.84269663 0.84745763]"/>
+        <metadata key="XGB Classifier" value="0.8447724243001332"/>
+        <metadata key="SVC CV Scores" value="[0.8258427  0.82022472 0.80337079 0.80898876 0.85310734]"/>
+        <metadata key="SVC" value="0.8223068621849807"/>
+        <metadata key="MLP CV Scores" value="[0.76404494 0.80337079 0.83146067 0.80337079 0.85310734]"/>
+        <metadata key="MLP" value="0.8110709071288008"/>
+        <metadata key="Voting Classifier CV Scores" value="[0.8258427  0.83146067 0.85393258 0.80898876 0.85310734]"/>
+        <metadata key="Voting Classifier" value="0.8346664127467782"/>
+      </asset>
+    </run>
+    <run versionID="18" name="@v18">
+      <asset xsi:type="model:Dataset" versionID="1" name="Titanic @v1">
+        <metadata key="URI" value="/kaggle/input/titanic/data.csv"/>
+        <metadata key="Dataset Format" value="CSV"/>
+        <datafeature name="PassengerId" dtype="Int"/>
+        <datafeature name="Survived" dtype="Int"/>
+        <datafeature name="Pclass" dtype="Int"/>
+        <datafeature name="Name"/>
+        <datafeature name="Sex"/>
+        <datafeature name="Age" dtype="Int"/>
+        <datafeature name="SibSp" dtype="Int"/>
+        <datafeature name="Parch" dtype="Int"/>
+        <datafeature name="Ticket"/>
+        <datafeature name="Fare" dtype="Int"/>
+        <datafeature name="Cabin"/>
+        <datafeature name="Embarked"/>
+      </asset>
+      <asset xsi:type="model:TrainingSet" name="TrainingSet @v1">
+        <metadata key="URI" value="/kaggle/input/titanic/train.csv"/>
+        <metadata key="Dataset Format" value="CSV"/>
+      </asset>
+      <asset xsi:type="model:EvalSet" name="Titanic EvaluationSet @v1">
+        <metadata key="URI" value="/kaggle/input/titanic/test.csv"/>
+        <metadata key="Dataset Format" value="CSV"/>
+      </asset>
+      <asset xsi:type="model:Parameter" versionID="2" name="@v2">
+        <metadata key="Data Split random_seed" value="42"/>
+        <metadata key="Cross Validation" value="5"/>
+        <metadata key="rfc_n_estimators" value="300"/>
+        <metadata key="rfc_max_leaf" value="100"/>
+        <metadata key="rfc_random_state" value="0"/>
+        <metadata key="xgb_use_label_encoder" value="False"/>
+        <metadata key="xgb_verbosity" value="0"/>
+        <metadata key="xgb_gamma" value="0.5"/>
+        <metadata key="xgb_reg_lambda" value="10"/>
+      </asset>
+      <asset xsi:type="model:DataOriented" versionID="1" name="EDA &amp; Data preprocessing @v1" sourceFile="/kaggle/data_script.py @v1" inputs="//@experiment.0/@run.0/@asset.3" inputData="//@experiment.0/@run.0/@asset.0" outputData="//@experiment.0/@run.0/@asset.0">
+        <metadata key="Script Type" value="Python"/>
+        <metadata key="Name" value="EDA @v1"/>
+      </asset>
+      <asset xsi:type="model:ModelTrain" versionID="1" name="Model training @v1" sourceFile="/kaggle/train_model_script.py @v1" trainingset="//@experiment.0/@run.0/@asset.1">
+        <metadata key="Script Type" value="Python"/>
+      </asset>
+      <asset xsi:type="model:ModelEval" versionID="2" name="Model testing @v2" sourceFile="/kaggle/eval_model_script.py @v2" evalset="//@experiment.0/@run.0/@asset.2" inputModel="//@experiment.0/@run.2/@asset.8 //@experiment.0/@run.2/@asset.9 //@experiment.0/@run.2/@asset.10 //@experiment.0/@run.2/@asset.11 //@experiment.0/@run.2/@asset.12 //@experiment.0/@run.2/@asset.13">
+        <metadata key="Script Type" value="Python"/>
+      </asset>
+      <asset xsi:type="model:ExecutionInfo" versionID="18" name="@v18">
+        <metadata key="Run duration" value="67s"/>
+        <metadata key="Logs" value="/kaggle/experiment/logs @v18"/>
+      </asset>
+      <asset xsi:type="model:Model" versionID="18" name="Random Forest Model @v18"/>
+      <asset xsi:type="model:Model" versionID="18" name="Logistic Regression Model @v18"/>
+      <asset xsi:type="model:Model" versionID="18" name="XGB Model @v18"/>
+      <asset xsi:type="model:Model" versionID="18" name="SVC Model @v18"/>
+      <asset xsi:type="model:Model" versionID="18" name="MLP Model @v18"/>
+      <asset xsi:type="model:Model" versionID="18" name="Voting Model @v18"/>
+      <asset xsi:type="model:ModelPerformance" versionID="18" name="@v18">
+        <metadata key="Random Forest CV Scores" value="[0.8258427  0.79213483 0.84831461 0.78651685 0.85310734]"/>
+        <metadata key="Random Forest" value="0.8211832666793628"/>
+        <metadata key="Logistic Regression CV Scores" value="[0.78651685 0.79775281 0.78089888 0.78651685 0.81355932]"/>
+        <metadata key="Logistic Regression" value="0.7930489430584651"/>
+        <metadata key="XGB Classifier CV Scores" value="[0.80898876 0.83146067 0.89325843 0.84269663 0.84745763]"/>
+        <metadata key="XGB Classifier" value="0.8447724243001332"/>
+        <metadata key="SVC CV Scores" value="[0.8258427  0.82022472 0.80337079 0.80898876 0.85310734]"/>
+        <metadata key="SVC" value="0.8223068621849807"/>
+        <metadata key="MLP CV Scores" value="[0.76404494 0.80337079 0.83146067 0.80337079 0.85310734]"/>
+        <metadata key="MLP" value="0.8110709071288008"/>
+        <metadata key="Voting Classifier CV Scores" value="[0.8258427  0.83146067 0.85393258 0.80898876 0.85310734]"/>
+        <metadata key="Voting Classifier" value="0.8346664127467782"/>
+      </asset>
+    </run>
+    <metadata key="Author" value="John Doe"/>
+    <metadata key="ML Framework" value="Scikit Learn"/>
+  </experiment>
+</model:ExperimentStore>
