@@ -469,7 +469,7 @@
         <metadata key="Script Type" value="Python"/>
         <metadata key="Name" value="EDA @v1"/>
       </asset>
-      <asset xsi:type="model:ModelTrain" versionID="1" name="Model training @v1" sourceFile="/kaggle/train_model_script.py @v1" trainingset="//@experiment.0/@run.0/@asset.1">
+      <asset xsi:type="model:ModelTrain" versionID="2" name="Model training @v2" sourceFile="/kaggle/train_model_script.py @v2" trainingset="//@experiment.0/@run.0/@asset.1">
         <metadata key="Script Type" value="Python"/>
       </asset>
       <asset xsi:type="model:ModelEval" versionID="2" name="Model testing @v2" sourceFile="/kaggle/eval_model_script.py @v2" evalset="//@experiment.0/@run.0/@asset.2" inputModel="//@experiment.0/@run.2/@asset.8 //@experiment.0/@run.2/@asset.9 //@experiment.0/@run.2/@asset.10 //@experiment.0/@run.2/@asset.11 //@experiment.0/@run.2/@asset.12 //@experiment.0/@run.2/@asset.13">
@@ -540,7 +540,7 @@
         <metadata key="Script Type" value="Python"/>
         <metadata key="Name" value="EDA @v1"/>
       </asset>
-      <asset xsi:type="model:ModelTrain" versionID="1" name="Model training @v1" sourceFile="/kaggle/train_model_script.py @v1" trainingset="//@experiment.0/@run.0/@asset.1">
+      <asset xsi:type="model:ModelTrain" versionID="3" name="Model training @v3" sourceFile="/kaggle/train_model_script.py @v3" trainingset="//@experiment.0/@run.0/@asset.1">
         <metadata key="Script Type" value="Python"/>
       </asset>
       <asset xsi:type="model:ModelEval" versionID="2" name="Model testing @v2" sourceFile="/kaggle/eval_model_script.py @v2" evalset="//@experiment.0/@run.0/@asset.2" inputModel="//@experiment.0/@run.2/@asset.8 //@experiment.0/@run.2/@asset.9 //@experiment.0/@run.2/@asset.10 //@experiment.0/@run.2/@asset.11 //@experiment.0/@run.2/@asset.12 //@experiment.0/@run.2/@asset.13">
@@ -611,7 +611,7 @@
         <metadata key="Script Type" value="Python"/>
         <metadata key="Name" value="EDA @v1"/>
       </asset>
-      <asset xsi:type="model:ModelTrain" versionID="1" name="Model training @v1" sourceFile="/kaggle/train_model_script.py @v1" trainingset="//@experiment.0/@run.0/@asset.1">
+      <asset xsi:type="model:ModelTrain" versionID="4" name="Model training @v4" sourceFile="/kaggle/train_model_script.py @v4" trainingset="//@experiment.0/@run.0/@asset.1">
         <metadata key="Script Type" value="Python"/>
       </asset>
       <asset xsi:type="model:ModelEval" versionID="2" name="Model testing @v2" sourceFile="/kaggle/eval_model_script.py @v2" evalset="//@experiment.0/@run.0/@asset.2" inputModel="//@experiment.0/@run.2/@asset.8 //@experiment.0/@run.2/@asset.9 //@experiment.0/@run.2/@asset.10 //@experiment.0/@run.2/@asset.11 //@experiment.0/@run.2/@asset.12 //@experiment.0/@run.2/@asset.13">
@@ -667,7 +667,7 @@
         <metadata key="URI" value="/kaggle/input/titanic/test.csv"/>
         <metadata key="Dataset Format" value="CSV"/>
       </asset>
-      <asset xsi:type="model:Parameter" versionID="2" name="@v2">
+      <asset xsi:type="model:Parameter" versionID="3" name="@v3">
         <metadata key="Data Split random_seed" value="42"/>
         <metadata key="Cross Validation" value="5"/>
         <metadata key="rfc_n_estimators" value="300"/>
@@ -682,7 +682,7 @@
         <metadata key="Script Type" value="Python"/>
         <metadata key="Name" value="EDA @v1"/>
       </asset>
-      <asset xsi:type="model:ModelTrain" versionID="1" name="Model training @v1" sourceFile="/kaggle/train_model_script.py @v1" trainingset="//@experiment.0/@run.0/@asset.1">
+      <asset xsi:type="model:ModelTrain" versionID="5" name="Model training @v5" sourceFile="/kaggle/train_model_script.py @v5" trainingset="//@experiment.0/@run.0/@asset.1">
         <metadata key="Script Type" value="Python"/>
       </asset>
       <asset xsi:type="model:ModelEval" versionID="2" name="Model testing @v2" sourceFile="/kaggle/eval_model_script.py @v2" evalset="//@experiment.0/@run.0/@asset.2" inputModel="//@experiment.0/@run.2/@asset.8 //@experiment.0/@run.2/@asset.9 //@experiment.0/@run.2/@asset.10 //@experiment.0/@run.2/@asset.11 //@experiment.0/@run.2/@asset.12 //@experiment.0/@run.2/@asset.13">
@@ -738,7 +738,7 @@
         <metadata key="URI" value="/kaggle/input/titanic/test.csv"/>
         <metadata key="Dataset Format" value="CSV"/>
       </asset>
-      <asset xsi:type="model:Parameter" versionID="2" name="@v2">
+      <asset xsi:type="model:Parameter" versionID="4" name="@v4">
         <metadata key="Data Split random_seed" value="42"/>
         <metadata key="Cross Validation" value="5"/>
         <metadata key="rfc_n_estimators" value="300"/>
@@ -753,7 +753,7 @@
         <metadata key="Script Type" value="Python"/>
         <metadata key="Name" value="EDA @v1"/>
       </asset>
-      <asset xsi:type="model:ModelTrain" versionID="1" name="Model training @v1" sourceFile="/kaggle/train_model_script.py @v1" trainingset="//@experiment.0/@run.0/@asset.1">
+      <asset xsi:type="model:ModelTrain" versionID="6" name="Model training @v6" sourceFile="/kaggle/train_model_script.py @v6" trainingset="//@experiment.0/@run.0/@asset.1">
         <metadata key="Script Type" value="Python"/>
       </asset>
       <asset xsi:type="model:ModelEval" versionID="2" name="Model testing @v2" sourceFile="/kaggle/eval_model_script.py @v2" evalset="//@experiment.0/@run.0/@asset.2" inputModel="//@experiment.0/@run.2/@asset.8 //@experiment.0/@run.2/@asset.9 //@experiment.0/@run.2/@asset.10 //@experiment.0/@run.2/@asset.11 //@experiment.0/@run.2/@asset.12 //@experiment.0/@run.2/@asset.13">
@@ -809,7 +809,7 @@
         <metadata key="URI" value="/kaggle/input/titanic/test.csv"/>
         <metadata key="Dataset Format" value="CSV"/>
       </asset>
-      <asset xsi:type="model:Parameter" versionID="2" name="@v2">
+      <asset xsi:type="model:Parameter" versionID="4" name="@v4">
         <metadata key="Data Split random_seed" value="42"/>
         <metadata key="Cross Validation" value="5"/>
         <metadata key="rfc_n_estimators" value="300"/>
@@ -824,7 +824,7 @@
         <metadata key="Script Type" value="Python"/>
         <metadata key="Name" value="EDA @v1"/>
       </asset>
-      <asset xsi:type="model:ModelTrain" versionID="1" name="Model training @v1" sourceFile="/kaggle/train_model_script.py @v1" trainingset="//@experiment.0/@run.0/@asset.1">
+      <asset xsi:type="model:ModelTrain" versionID="6" name="Model training @v6" sourceFile="/kaggle/train_model_script.py @v6" trainingset="//@experiment.0/@run.0/@asset.1">
         <metadata key="Script Type" value="Python"/>
       </asset>
       <asset xsi:type="model:ModelEval" versionID="2" name="Model testing @v2" sourceFile="/kaggle/eval_model_script.py @v2" evalset="//@experiment.0/@run.0/@asset.2" inputModel="//@experiment.0/@run.2/@asset.8 //@experiment.0/@run.2/@asset.9 //@experiment.0/@run.2/@asset.10 //@experiment.0/@run.2/@asset.11 //@experiment.0/@run.2/@asset.12 //@experiment.0/@run.2/@asset.13">
@@ -880,7 +880,7 @@
         <metadata key="URI" value="/kaggle/input/titanic/test.csv"/>
         <metadata key="Dataset Format" value="CSV"/>
       </asset>
-      <asset xsi:type="model:Parameter" versionID="2" name="@v2">
+      <asset xsi:type="model:Parameter" versionID="4" name="@v4">
         <metadata key="Data Split random_seed" value="42"/>
         <metadata key="Cross Validation" value="5"/>
         <metadata key="rfc_n_estimators" value="300"/>
@@ -895,7 +895,7 @@
         <metadata key="Script Type" value="Python"/>
         <metadata key="Name" value="EDA @v1"/>
       </asset>
-      <asset xsi:type="model:ModelTrain" versionID="1" name="Model training @v1" sourceFile="/kaggle/train_model_script.py @v1" trainingset="//@experiment.0/@run.0/@asset.1">
+      <asset xsi:type="model:ModelTrain" versionID="6" name="Model training @v6" sourceFile="/kaggle/train_model_script.py @v6" trainingset="//@experiment.0/@run.0/@asset.1">
         <metadata key="Script Type" value="Python"/>
       </asset>
       <asset xsi:type="model:ModelEval" versionID="2" name="Model testing @v2" sourceFile="/kaggle/eval_model_script.py @v2" evalset="//@experiment.0/@run.0/@asset.2" inputModel="//@experiment.0/@run.2/@asset.8 //@experiment.0/@run.2/@asset.9 //@experiment.0/@run.2/@asset.10 //@experiment.0/@run.2/@asset.11 //@experiment.0/@run.2/@asset.12 //@experiment.0/@run.2/@asset.13">
@@ -951,7 +951,7 @@
         <metadata key="URI" value="/kaggle/input/titanic/test.csv"/>
         <metadata key="Dataset Format" value="CSV"/>
       </asset>
-      <asset xsi:type="model:Parameter" versionID="2" name="@v2">
+      <asset xsi:type="model:Parameter" versionID="5" name="@v5">
         <metadata key="Data Split random_seed" value="42"/>
         <metadata key="Cross Validation" value="5"/>
         <metadata key="rfc_n_estimators" value="300"/>
@@ -966,7 +966,7 @@
         <metadata key="Script Type" value="Python"/>
         <metadata key="Name" value="EDA @v1"/>
       </asset>
-      <asset xsi:type="model:ModelTrain" versionID="1" name="Model training @v1" sourceFile="/kaggle/train_model_script.py @v1" trainingset="//@experiment.0/@run.0/@asset.1">
+      <asset xsi:type="model:ModelTrain" versionID="7" name="Model training @v7" sourceFile="/kaggle/train_model_script.py @v7" trainingset="//@experiment.0/@run.0/@asset.1">
         <metadata key="Script Type" value="Python"/>
       </asset>
       <asset xsi:type="model:ModelEval" versionID="2" name="Model testing @v2" sourceFile="/kaggle/eval_model_script.py @v2" evalset="//@experiment.0/@run.0/@asset.2" inputModel="//@experiment.0/@run.2/@asset.8 //@experiment.0/@run.2/@asset.9 //@experiment.0/@run.2/@asset.10 //@experiment.0/@run.2/@asset.11 //@experiment.0/@run.2/@asset.12 //@experiment.0/@run.2/@asset.13">
@@ -1022,7 +1022,7 @@
         <metadata key="URI" value="/kaggle/input/titanic/test.csv"/>
         <metadata key="Dataset Format" value="CSV"/>
       </asset>
-      <asset xsi:type="model:Parameter" versionID="2" name="@v2">
+      <asset xsi:type="model:Parameter" versionID="5" name="@v5">
         <metadata key="Data Split random_seed" value="42"/>
         <metadata key="Cross Validation" value="5"/>
         <metadata key="rfc_n_estimators" value="300"/>
@@ -1037,7 +1037,7 @@
         <metadata key="Script Type" value="Python"/>
         <metadata key="Name" value="EDA @v1"/>
       </asset>
-      <asset xsi:type="model:ModelTrain" versionID="1" name="Model training @v1" sourceFile="/kaggle/train_model_script.py @v1" trainingset="//@experiment.0/@run.0/@asset.1">
+      <asset xsi:type="model:ModelTrain" versionID="8" name="Model training @v8" sourceFile="/kaggle/train_model_script.py @v8" trainingset="//@experiment.0/@run.0/@asset.1">
         <metadata key="Script Type" value="Python"/>
       </asset>
       <asset xsi:type="model:ModelEval" versionID="2" name="Model testing @v2" sourceFile="/kaggle/eval_model_script.py @v2" evalset="//@experiment.0/@run.0/@asset.2" inputModel="//@experiment.0/@run.2/@asset.8 //@experiment.0/@run.2/@asset.9 //@experiment.0/@run.2/@asset.10 //@experiment.0/@run.2/@asset.11 //@experiment.0/@run.2/@asset.12 //@experiment.0/@run.2/@asset.13">
@@ -1093,7 +1093,7 @@
         <metadata key="URI" value="/kaggle/input/titanic/test.csv"/>
         <metadata key="Dataset Format" value="CSV"/>
       </asset>
-      <asset xsi:type="model:Parameter" versionID="2" name="@v2">
+      <asset xsi:type="model:Parameter" versionID="5" name="@v5">
         <metadata key="Data Split random_seed" value="42"/>
         <metadata key="Cross Validation" value="5"/>
         <metadata key="rfc_n_estimators" value="300"/>
@@ -1108,7 +1108,7 @@
         <metadata key="Script Type" value="Python"/>
         <metadata key="Name" value="EDA @v1"/>
       </asset>
-      <asset xsi:type="model:ModelTrain" versionID="1" name="Model training @v1" sourceFile="/kaggle/train_model_script.py @v1" trainingset="//@experiment.0/@run.0/@asset.1">
+      <asset xsi:type="model:ModelTrain" versionID="8" name="Model training @v8" sourceFile="/kaggle/train_model_script.py @v8" trainingset="//@experiment.0/@run.0/@asset.1">
         <metadata key="Script Type" value="Python"/>
       </asset>
       <asset xsi:type="model:ModelEval" versionID="2" name="Model testing @v2" sourceFile="/kaggle/eval_model_script.py @v2" evalset="//@experiment.0/@run.0/@asset.2" inputModel="//@experiment.0/@run.2/@asset.8 //@experiment.0/@run.2/@asset.9 //@experiment.0/@run.2/@asset.10 //@experiment.0/@run.2/@asset.11 //@experiment.0/@run.2/@asset.12 //@experiment.0/@run.2/@asset.13">
@@ -1164,7 +1164,7 @@
         <metadata key="URI" value="/kaggle/input/titanic/test.csv"/>
         <metadata key="Dataset Format" value="CSV"/>
       </asset>
-      <asset xsi:type="model:Parameter" versionID="2" name="@v2">
+      <asset xsi:type="model:Parameter" versionID="5" name="@v5">
         <metadata key="Data Split random_seed" value="42"/>
         <metadata key="Cross Validation" value="5"/>
         <metadata key="rfc_n_estimators" value="300"/>
@@ -1179,7 +1179,7 @@
         <metadata key="Script Type" value="Python"/>
         <metadata key="Name" value="EDA @v1"/>
       </asset>
-      <asset xsi:type="model:ModelTrain" versionID="1" name="Model training @v1" sourceFile="/kaggle/train_model_script.py @v1" trainingset="//@experiment.0/@run.0/@asset.1">
+      <asset xsi:type="model:ModelTrain" versionID="8" name="Model training @v8" sourceFile="/kaggle/train_model_script.py @v8" trainingset="//@experiment.0/@run.0/@asset.1">
         <metadata key="Script Type" value="Python"/>
       </asset>
       <asset xsi:type="model:ModelEval" versionID="2" name="Model testing @v2" sourceFile="/kaggle/eval_model_script.py @v2" evalset="//@experiment.0/@run.0/@asset.2" inputModel="//@experiment.0/@run.2/@asset.8 //@experiment.0/@run.2/@asset.9 //@experiment.0/@run.2/@asset.10 //@experiment.0/@run.2/@asset.11 //@experiment.0/@run.2/@asset.12 //@experiment.0/@run.2/@asset.13">
@@ -1235,7 +1235,7 @@
         <metadata key="URI" value="/kaggle/input/titanic/test.csv"/>
         <metadata key="Dataset Format" value="CSV"/>
       </asset>
-      <asset xsi:type="model:Parameter" versionID="2" name="@v2">
+      <asset xsi:type="model:Parameter" versionID="5" name="@v5">
         <metadata key="Data Split random_seed" value="42"/>
         <metadata key="Cross Validation" value="5"/>
         <metadata key="rfc_n_estimators" value="300"/>
@@ -1246,14 +1246,14 @@
         <metadata key="xgb_gamma" value="0.5"/>
         <metadata key="xgb_reg_lambda" value="10"/>
       </asset>
-      <asset xsi:type="model:DataOriented" versionID="1" name="EDA &amp; Data preprocessing @v1" sourceFile="/kaggle/data_script.py @v1" inputs="//@experiment.0/@run.0/@asset.3" inputData="//@experiment.0/@run.0/@asset.0" outputData="//@experiment.0/@run.0/@asset.0">
+      <asset xsi:type="model:DataOriented" versionID="2" name="EDA &amp; Data preprocessing @v2" sourceFile="/kaggle/data_script.py @v2" inputs="//@experiment.0/@run.13/@asset.3" inputData="//@experiment.0/@run.0/@asset.0" outputData="//@experiment.0/@run.0/@asset.0">
         <metadata key="Script Type" value="Python"/>
-        <metadata key="Name" value="EDA @v1"/>
+        <metadata key="Name" value="EDA @v2"/>
       </asset>
-      <asset xsi:type="model:ModelTrain" versionID="1" name="Model training @v1" sourceFile="/kaggle/train_model_script.py @v1" trainingset="//@experiment.0/@run.0/@asset.1">
+      <asset xsi:type="model:ModelTrain" versionID="9" name="Model training @v9" sourceFile="/kaggle/train_model_script.py @v9" trainingset="//@experiment.0/@run.0/@asset.1">
         <metadata key="Script Type" value="Python"/>
       </asset>
-      <asset xsi:type="model:ModelEval" versionID="2" name="Model testing @v2" sourceFile="/kaggle/eval_model_script.py @v2" evalset="//@experiment.0/@run.0/@asset.2" inputModel="//@experiment.0/@run.2/@asset.8 //@experiment.0/@run.2/@asset.9 //@experiment.0/@run.2/@asset.10 //@experiment.0/@run.2/@asset.11 //@experiment.0/@run.2/@asset.12 //@experiment.0/@run.2/@asset.13">
+      <asset xsi:type="model:ModelEval" versionID="2" name="Model testing @v2" sourceFile="/kaggle/eval_model_script.py @v2" evalset="//@experiment.0/@run.0/@asset.2" inputModel="//@experiment.0/@run.17/@asset.8 //@experiment.0/@run.17/@asset.9 //@experiment.0/@run.17/@asset.10 //@experiment.0/@run.17/@asset.11 //@experiment.0/@run.17/@asset.12 //@experiment.0/@run.17/@asset.13">
         <metadata key="Script Type" value="Python"/>
       </asset>
       <asset xsi:type="model:ExecutionInfo" versionID="18" name="@v18">
